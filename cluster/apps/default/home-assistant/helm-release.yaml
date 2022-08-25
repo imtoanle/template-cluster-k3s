@@ -1,0 +1,62 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: home-assistant
+  namespace: default
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: home-assistant
+      version: 13.4.2
+      sourceRef:
+        kind: HelmRepository
+        name: imtoanle
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    env:
+      # -- Set the container timezone
+      TZ: Asia/Ho_Chi_Minh
+    persistence:
+      config:
+        enabled: true
+    addons:
+      # -- Enable and configure codeserver for the chart.
+      #    This allows for easy access to configuration.yaml
+      # @default -- See values.yaml
+      codeserver:
+        enabled: false
+        args:
+          - --auth
+          - none
+          - --user-data-dir
+          - /data/config/.vscode
+        volumeMounts:
+          - name: config
+            mountPath: /data/config
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns/is-public: "true"
+        hosts:
+          - host: &host "ha.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: "home-assistant-tls"
