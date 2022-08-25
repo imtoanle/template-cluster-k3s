@@ -27,7 +27,7 @@ spec:
     storageClass:
       name: media-nfs
       provisionerName: homelab/media-nfs
-      pathPattern: "${.PVC.namespace}/${.PVC.name}"
+      pathPattern: '${.PVC.namespace}/${.PVC.annotations.nfs.io/storage-path}'
     nfs:
       server: 10.0.100.166
       path: /mnt/data/k8s_data
