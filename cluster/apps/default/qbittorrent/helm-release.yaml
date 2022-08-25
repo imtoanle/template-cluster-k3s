@@ -1,0 +1,49 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: qbittorrent
+  namespace: default
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: qbittorrent
+      version: 13.2.0
+      sourceRef:
+        kind: HelmRepository
+        name: imtoanle
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    persistence:
+      downloads:
+        enabled: true
+        mountPath: /downloads
+        storageClass: media-nfs
+        accessMode: ReadWriteOnce
+        size: 5000Gi
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns/is-public: "true"
+        hosts:
+          - host: &host "torrent.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: "qbittorrent-tls"
