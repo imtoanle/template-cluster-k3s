@@ -13,5 +13,6 @@ resources:
   - longhorn.yaml
   - metallb.yaml
   - metrics-server.yaml
+  - nfs-subdir-external-provisioner.yaml
   - stakater.yaml
   - weaveworks-kured.yaml
