@@ -1,0 +1,97 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: photoprism
+  namespace: default
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: photoprism
+      version: 7.1.2
+      sourceRef:
+        kind: HelmRepository
+        name: imtoanle
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    env:
+      # -- Set the container timezone
+      TZ: Asia/Ho_Chi_Minh
+      # -- Photoprism storage path
+      PHOTOPRISM_STORAGE_PATH: /photoprism/storage
+      # -- Photoprism originals path
+      PHOTOPRISM_ORIGINALS_PATH: /photoprism/originals
+      # -- Database driver (sqlite, mysql)
+      PHOTOPRISM_DATABASE_DRIVER: mysql
+      # -- Database host incl. port
+      PHOTOPRISM_DATABASE_SERVER: photoprism-mariadb:3306
+      # -- Database schema name
+      PHOTOPRISM_DATABASE_NAME: photoprism
+      # -- Database user name
+      PHOTOPRISM_DATABASE_USER: photoprism
+      # -- Database user password
+      PHOTOPRISM_DATABASE_PASSWORD: photoprism
+      # -- HWA
+      # -- Sets UID Photoprism runs under.
+      PHOTOPRISM_UID: # 1000
+      # -- Sets GID Photoprism runs under.
+      PHOTOPRISM_GID: # 1000
+      # -- Sets UMASK.
+      PHOTOPRISM_UMASK: 0000 # 0000
+      # Not working
+      # PHOTOPRISM_FFMPEG_BUFFERS: 64
+      # PHOTOPRISM_FFMPEG_ENCODER: h264_qsv
+      # PHOTOPRISM_INIT: "intel-graphics tensorflow-amd64-avx2"
+
+    mariadb:
+      enabled: true
+      architecture: standalone
+      auth:
+        database: photoprism
+        username: photoprism
+        password: photoprism
+        rootPassword: photoprism
+      primary:
+        persistence:
+          enabled: false
+
+    persistence:
+      config:
+        enabled: true
+        mountPath: /photoprism/storage
+        storageClass: longhorn
+        accessMode: ReadWriteOnce
+
+      originals:
+        enabled: true
+        mountPath: /photoprism/originals
+        storageClass: media-nfs
+        accessMode: ReadWriteOnce
+        size: 2000Gi
+
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns/is-public: "true"
+        hosts:
+          - host: &host "photo.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: "photoprism-tls"

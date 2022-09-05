@@ -6,5 +6,6 @@ resources:
   - echo-server
   - hajimari
   - home-assistant
+  - photoprism
   - qbittorrent
   - trilium-notes
