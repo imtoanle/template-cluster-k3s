@@ -70,6 +70,7 @@ spec:
         mountPath: /photoprism/storage
         storageClass: longhorn
         accessMode: ReadWriteOnce
+        size: 10Gi
 
       originals:
         enabled: true
