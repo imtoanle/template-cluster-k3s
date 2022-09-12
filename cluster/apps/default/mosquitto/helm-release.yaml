@@ -23,6 +23,16 @@ spec:
     remediation:
       retries: 5
   values:
+    service:
+      main:
+        type: NodePort
+        nodePort: 1883
+        ports:
+          http:
+            enabled: false
+          mqtt:
+            enabled: true
+            port: 1883
     persistence:
       # -- Configure a persistent volume to place mosquitto data in.
       # When enabled, this enables `persistence` and `persistence_location` in the mosquitto config.
