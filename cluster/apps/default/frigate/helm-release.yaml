@@ -8,8 +8,8 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: frigate
-      version: 6.3.1
+      chart: imtoanle
+      version: 8.2.2
       sourceRef:
         kind: HelmRepository
         name: frigate
@@ -39,11 +39,9 @@ spec:
           detect:
             width: 2592
             height: 1944
-    coral:
-      enabled: true
-      hostPath: "/dev/apex_0"
     env:
-      FRIGATE_RTSP_PASSWORD: "FRIGATE_RTSP_PASSWORD"
+      FRIGATE_RTSP_PASSWORD: "CoolBoy2022cr"
+      TZ: Asia/Ho_Chi_Minh
     image:
       pullPolicy: "IfNotPresent"
       repository: "blakeblackshear/frigate"
@@ -51,9 +49,13 @@ spec:
     persistence:
       data:
         enabled: true
+        mountPath: /data
         accessMode: ReadWriteOnce
         storageClass: longhorn
         size: 15Gi
+      usb:
+        enabled: true
+        mountPath: /dev/apex_0
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
