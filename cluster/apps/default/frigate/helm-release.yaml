@@ -1,0 +1,55 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: &app frigate
+  namespace: default
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: frigate
+      version: 6.3.1
+      sourceRef:
+        kind: HelmRepository
+        name: frigate
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    config: |
+      mqtt:
+        host: "10.0.100.105"
+        port: 31883
+      cameras:
+        # Define at least one camera
+        door:
+          ffmpeg:
+            inputs:
+              - path: rtsp://admin:CoolBoy2022cr@192.168.1.85:554
+                roles:
+                  - detect
+                  - rtmp
+          detect:
+            width: 2592
+            height: 1944
+    coral:
+      enabled: true
+      hostPath: "/dev/apex_0"
+    env:
+      FRIGATE_RTSP_PASSWORD: "FRIGATE_RTSP_PASSWORD"
+    image:
+      pullPolicy: "IfNotPresent"
+      repository: "blakeblackshear/frigate"
+      tag: stable-amd64
+    persistence:
+      data:
+        enabled: true
+        accessMode: ReadWriteOnce
+        size: 15Gi
