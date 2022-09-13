@@ -5,6 +5,7 @@ resources:
   - bitnami.yaml
   - bjw-s.yaml
   - external-dns.yaml
+  - frigate.yaml
   - hajimari.yaml
   - imtoanle.yaml
   - ingress-nginx.yaml
