@@ -8,11 +8,11 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: imtoanle
+      chart: frigate
       version: 8.2.2
       sourceRef:
         kind: HelmRepository
-        name: frigate
+        name: imtoanle
         namespace: flux-system
       interval: 15m
   install:
