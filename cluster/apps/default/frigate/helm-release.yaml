@@ -53,6 +53,10 @@ spec:
                 detect:
                   width: 2592
                   height: 1944
+            detectors:
+              coral:
+                type: edgetpu
+                device: pci
     env:
       FRIGATE_RTSP_PASSWORD: "CoolBoy2022cr"
       TZ: Asia/Ho_Chi_Minh
