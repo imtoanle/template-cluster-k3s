@@ -26,7 +26,7 @@ spec:
     configmap:
       config:
         enabled: true
-        data: |
+        data:
           mqtt:
             host: "mosquitto.default.svc.cluster.local"
             port: 1883
