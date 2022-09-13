@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - echo-server
+  - frigate
   - hajimari
   - home-assistant
   - mosquitto
