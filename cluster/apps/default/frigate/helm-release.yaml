@@ -71,9 +71,12 @@ spec:
         accessMode: ReadWriteOnce
         storageClass: longhorn
         size: 15Gi
-      usb:
+      pci:
         enabled: true
+        type: hostPath
         mountPath: /dev/apex_0
+    securityContext:
+      privileged: true
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
