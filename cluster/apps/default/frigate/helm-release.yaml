@@ -54,3 +54,12 @@ spec:
         accessMode: ReadWriteOnce
         storageClass: longhorn
         size: 15Gi
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: In
+                  values:
+                    - "home-k3s-worker-7"
