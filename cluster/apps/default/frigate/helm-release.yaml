@@ -23,32 +23,36 @@ spec:
     remediation:
       retries: 5
   values:
-    # config: |
-    #   mqtt:
-    #     host: "mosquitto.default.svc.cluster.local"
-    #     port: 1883
-    #   cameras:
-    #     # Define at least one camera
-    #     door:
-    #       ffmpeg:
-    #         inputs:
-    #           - path: rtsp://admin:CoolBoy2022cr@192.168.1.85:554
-    #             roles:
-    #               - detect
-    #               - rtmp
-    #       detect:
-    #         width: 2592
-    #         height: 1944
-    #     living:
-    #       ffmpeg:
-    #         inputs:
-    #           - path: rtsp://admin:CoolBoy2022cr@192.168.1.83:554
-    #             roles:
-    #               - detect
-    #               - rtmp
-    #       detect:
-    #         width: 2592
-    #         height: 1944
+    configmap:
+      config:
+        enabled: true
+        data:
+          config.yml: |
+            mqtt:
+              host: "mosquitto.default.svc.cluster.local"
+              port: 1883
+            cameras:
+              # Define at least one camera
+              door:
+                ffmpeg:
+                  inputs:
+                    - path: rtsp://admin:CoolBoy2022cr@192.168.1.85:554
+                      roles:
+                        - detect
+                        - rtmp
+                detect:
+                  width: 2592
+                  height: 1944
+              living:
+                ffmpeg:
+                  inputs:
+                    - path: rtsp://admin:CoolBoy2022cr@192.168.1.83:554
+                      roles:
+                        - detect
+                        - rtmp
+                detect:
+                  width: 2592
+                  height: 1944
     env:
       FRIGATE_RTSP_PASSWORD: "CoolBoy2022cr"
       TZ: Asia/Ho_Chi_Minh
