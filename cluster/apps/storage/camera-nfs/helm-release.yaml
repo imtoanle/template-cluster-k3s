@@ -30,6 +30,6 @@ spec:
       # pathPattern: "${.PVC.namespace}/${.PVC.annotations.nfs.io/storage-path}"
     nfs:
       server: 10.0.100.156
-      path: /mnt/camera
+      path: /mnt/k8s_data
       mountOptions:
         - vers=4
