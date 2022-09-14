@@ -48,10 +48,12 @@ spec:
                   width: 704
                   fps: 5
                 objects:
+                  track:
+                    - person
                   filters:
                     person:
                       min_area: 1500
-                      max_area: 100000
+                      max_area: 300000
                       threshold: 0.75
                       min_score: 0.60
             detectors:
