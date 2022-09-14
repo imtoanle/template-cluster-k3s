@@ -101,6 +101,8 @@ spec:
                 motion:
                   mask:
                     - 513,36,680,39,683,21,518,21
+                rtmp:
+                  enabled: false
               livingroom:
                 ffmpeg:
                   inputs:
