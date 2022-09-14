@@ -71,11 +71,25 @@ spec:
         mountPath: /data
         accessMode: ReadWriteOnce
         storageClass: longhorn
-        size: 15Gi
+        size: 20Gi
       pci:
         enabled: true
         type: hostPath
         mountPath: /dev/apex_0
+      media:
+        enabled: true
+        accessMode: ReadWriteOnce
+        size: 100Gi
+        storageClass: media-nfs
+        mountPath: /media
+        subPath: Videos
+      cache:
+        enabled: true
+        type: emptyDir
+        medium: Memory
+        sizeLimit: 2Gi
+        # mountPath: /dev/shm
+        mountPath: /tmp/cache
     securityContext:
       privileged: true
     affinity:
