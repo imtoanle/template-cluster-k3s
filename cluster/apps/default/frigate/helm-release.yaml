@@ -87,8 +87,8 @@ spec:
       media:
         enabled: true
         accessMode: ReadWriteOnce
-        size: 100Gi
-        storageClass: media-nfs
+        size: 6000Gi
+        storageClass: camera-nfs
         mountPath: /media
         subPath: Videos
       cache:
