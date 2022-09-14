@@ -31,6 +31,13 @@ spec:
             mqtt:
               host: "mosquitto.default.svc.cluster.local"
               port: 1883
+            record:
+              enabled: true
+              retain:
+                days: 7
+              events:
+                retain:
+                  default: 14
             snapshots:
               enabled: True
               timestamp: False
