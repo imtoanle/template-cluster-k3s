@@ -68,6 +68,9 @@ spec:
                       max_area: 300000
                       threshold: 0.75
                       min_score: 0.60
+                motion:
+                  mask:
+                    - 513,36,680,39,683,21,518,21
             detectors:
               coral:
                 type: edgetpu
