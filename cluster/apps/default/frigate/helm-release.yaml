@@ -62,6 +62,17 @@ spec:
               timestamp: False
               bounding_box: True
               crop: False
+            ffmpeg:
+              output_args:
+                record: -f segment -segment_time 10 -segment_format mp4 -reset_timestamps 1 -strftime 1 -c:v copy -c:a aac
+            objects:
+              track:
+                - person
+              filters:
+                person:
+                  min_area: 2500
+                  max_area: 100000
+                  threshold: 0.75
             cameras:
               # Define at least one camera
               door:
@@ -104,15 +115,6 @@ spec:
                   height: 480
                   width: 704
                   fps: 5
-                objects:
-                  track:
-                    - person
-                  filters:
-                    person:
-                      min_area: 1500
-                      max_area: 100000
-                      threshold: 0.75
-                      min_score: 0.60
                 motion:
                   mask:
                     - 513,36,680,39,683,21,518,21
