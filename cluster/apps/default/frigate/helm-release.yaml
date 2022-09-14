@@ -75,6 +75,7 @@ spec:
       pci:
         enabled: true
         type: hostPath
+        hostPath: /dev/apex_0
         mountPath: /dev/apex_0
       media:
         enabled: true
