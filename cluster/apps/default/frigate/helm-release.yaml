@@ -102,8 +102,13 @@ spec:
                 type: edgetpu
                 device: pci
     env:
-      FRIGATE_RTSP_PASSWORD: "CoolBoy2022cr"
-      TZ: Asia/Ho_Chi_Minh
+      - name: FRIGATE_RTSP_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: frigate-camera-credentials
+            key: camera-password
+      - name: TZ
+        value: Asia/Ho_Chi_Minh
     image:
       pullPolicy: "IfNotPresent"
       repository: "blakeblackshear/frigate"
