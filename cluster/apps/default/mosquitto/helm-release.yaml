@@ -23,6 +23,20 @@ spec:
     remediation:
       retries: 5
   values:
+    initContainers:
+      passwd:
+        image: alpine
+        command:
+          - sh
+          - -c
+          - |
+            echo 'mqtt:$7$101$qOHl16BL7MSc74aN$QimqrYmnJz1uEjE2ygWyYTDQF7SwoKPrxHDyAajVEyr1dBp5WVPvWU6o74MjKVrZgHP1weayuavafMpYvFnE5g==' > /mosquitto/configinc/passwd;
+            echo 'password_file /mosquitto/configinc/passwd' > /mosquitto/configinc/passwd.conf;
+        volumeMounts:
+          - mountPath: /mosquitto/configinc
+            name: configinc
+    auth:
+      enabled: true
     service:
       main:
         type: NodePort
