@@ -34,10 +34,13 @@ spec:
           - -c
           - |
             mkdir -p /config/custom_components
+            mkdir -p /config/cards
             cd /tmp
             wget https://github.com/blakeblackshear/frigate-hass-integration/archive/refs/tags/v2.3.zip -O frigate-hass-integration.zip
+            wget https://github.com/dermotduffy/frigate-hass-card/releases/download/v3.0.0/frigate-hass-card.js
             unzip frigate-hass-integration.zip
             mv frigate-hass-integration-2.3/custom_components/frigate /config/custom_components/frigate
+            mv frigate-hass-card.js /config/cards/
         volumeMounts:
           - mountPath: /config
             name: config
@@ -49,7 +52,7 @@ spec:
       #    This allows for easy access to configuration.yaml
       # @default -- See values.yaml
       codeserver:
-        enabled: false
+        enabled: true
         args:
           - --auth
           - none
