@@ -27,7 +27,7 @@ spec:
       # -- Set the container timezone
       TZ: Asia/Ho_Chi_Minh
     initContainers:
-      custom_component:
+      customcomponent:
         image: alpine
         command:
           - sh
