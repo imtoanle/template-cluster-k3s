@@ -23,6 +23,14 @@ spec:
     remediation:
       retries: 5
   values:
+    image:
+      # -- image repository
+      repository: ghcr.io/home-assistant/home-assistant
+      # -- image tag
+      # @default -- chart.appVersion
+      tag: 2022.9.4
+      # -- image pull policy
+      pullPolicy: IfNotPresent
     env:
       # -- Set the container timezone
       TZ: Asia/Ho_Chi_Minh
@@ -37,10 +45,8 @@ spec:
             mkdir -p /config/cards
             cd /tmp
             wget https://github.com/blakeblackshear/frigate-hass-integration/archive/refs/tags/v2.3.zip -O frigate-hass-integration.zip
-            wget https://github.com/dermotduffy/frigate-hass-card/releases/download/v3.0.0/frigate-hass-card.js
             unzip frigate-hass-integration.zip
             mv frigate-hass-integration-2.3/custom_components/frigate /config/custom_components/frigate
-            mv frigate-hass-card.js /config/cards/
         volumeMounts:
           - mountPath: /config
             name: config

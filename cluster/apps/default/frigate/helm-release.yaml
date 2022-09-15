@@ -104,8 +104,6 @@ spec:
                 motion:
                   mask:
                     - 513,36,680,39,683,21,518,21
-                # rtmp:
-                #   enabled: true
               livingroom:
                 ffmpeg:
                   inputs:
@@ -123,8 +121,6 @@ spec:
                 motion:
                   mask:
                     - 513,36,680,39,683,21,518,21
-                # rtmp:
-                #   enabled: true
             detectors:
               coral:
                 type: edgetpu
