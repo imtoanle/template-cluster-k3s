@@ -50,6 +50,9 @@ spec:
             mqtt:
               host: "mosquitto.default.svc.cluster.local"
               port: 1883
+              topic_prefix: frigate
+              user: mqtt
+              password: '{FRIGATE_MQTT_PASSWORD}'
             record:
               enabled: true
               retain:
@@ -130,6 +133,11 @@ spec:
           secretKeyRef:
             name: frigate-camera-credentials
             key: camera-password
+      - name: FRIGATE_MQTT_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: frigate-camera-credentials
+            key: mqtt-password
       - name: TZ
         value: Asia/Ho_Chi_Minh
     image:
