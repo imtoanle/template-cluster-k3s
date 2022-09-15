@@ -30,7 +30,7 @@ spec:
           - sh
           - -c
           - |
-            echo 'mqtt:$7$101$qOHl16BL7MSc74aN$QimqrYmnJz1uEjE2ygWyYTDQF7SwoKPrxHDyAajVEyr1dBp5WVPvWU6o74MjKVrZgHP1weayuavafMpYvFnE5g==' > /mosquitto/configinc/passwd;
+            echo 'mqtt:$7$101$hJmIz/DJl8hBqBku$tNp/nemGXfgbNNUNa4UYIVKZo17C3wRmnteqh3TTyo4V8OMT27tUkwf9OI8vzR8uETxgr1ZCVtHHrZv7yZtbOQ==' > /mosquitto/configinc/passwd;
             echo 'password_file /mosquitto/configinc/passwd' > /mosquitto/configinc/passwd.conf;
         volumeMounts:
           - mountPath: /mosquitto/configinc
