@@ -35,21 +35,21 @@ spec:
       # -- Set the container timezone
       TZ: Asia/Ho_Chi_Minh
     initContainers:
-      customcomponent:
-        image: alpine
-        command:
-          - sh
-          - -c
-          - |
-            mkdir -p /config/custom_components
-            mkdir -p /config/cards
-            cd /tmp
-            wget https://github.com/blakeblackshear/frigate-hass-integration/archive/refs/tags/v2.3.zip -O frigate-hass-integration.zip
-            unzip frigate-hass-integration.zip
-            mv frigate-hass-integration-2.3/custom_components/frigate /config/custom_components/frigate
-        volumeMounts:
-          - mountPath: /config
-            name: config
+      # customcomponent:
+      #   image: alpine
+      #   command:
+      #     - sh
+      #     - -c
+      #     - |
+      #       mkdir -p /config/custom_components
+      #       mkdir -p /config/cards
+      #       cd /tmp
+      #       wget https://github.com/blakeblackshear/frigate-hass-integration/archive/refs/tags/v2.3.zip -O frigate-hass-integration.zip
+      #       unzip frigate-hass-integration.zip
+      #       mv frigate-hass-integration-2.3/custom_components/frigate /config/custom_components/frigate
+      #   volumeMounts:
+      #     - mountPath: /config
+      #       name: config
     persistence:
       config:
         enabled: true
