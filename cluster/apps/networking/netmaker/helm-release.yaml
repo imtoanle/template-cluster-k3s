@@ -29,7 +29,7 @@ spec:
       enabled: true
       # -- whether or not to use Kernel WG (should be false unless WireGuard is installed on hosts).
       kernel: true
-    baseDomain: nm.fat-space.com
+    baseDomain: fat-space.com
     ingress:
       # -- attempts to configure ingress if true
       enabled: true
@@ -48,11 +48,11 @@ spec:
           external-dns/is-public: "true"
       hostPrefix:
         # -- ui route subdomain
-        ui: 'dashboard.'
+        ui: 'dashboard-nm.'
         # -- api (REST) route subdomain
-        rest: 'api.'
+        rest: 'api-nm.'
         # -- mqtt route subdomain
-        mq: 'brocker.'
+        mq: 'brocker-nm.'
     dns:
       # -- whether or not to deploy coredns
       enabled: false
