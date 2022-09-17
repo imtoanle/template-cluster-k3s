@@ -23,6 +23,7 @@ spec:
     remediation:
       retries: 5
   values:
+    RWXStorageClassName: longhorn
     wireguard:
       # -- whether or not to use WireGuard on server
       enabled: true
