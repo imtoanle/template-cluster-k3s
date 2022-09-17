@@ -65,6 +65,6 @@ spec:
       # -- port for API service
       restPort: 8081
       # -- port for MQTT service
-      mqPort: 32883
+      mqPort: 30883
       # -- port for UI service
       uiPort: 80
