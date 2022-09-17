@@ -23,17 +23,17 @@ spec:
     remediation:
       retries: 5
   values:
-    env:
-      - name: REPMGR_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: netmaker-credentials
-            key: NM_POSTGRES_REPMGR_PASSWORD
-      - name: ADMIN_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: netmaker-credentials
-            key: NM_POSTGRES_ADMIN_PASSWORD
+    # env:
+    #   - name: REPMGR_PASSWORD
+    #     valueFrom:
+    #       secretKeyRef:
+    #         name: netmaker-credentials
+    #         key: NM_POSTGRES_REPMGR_PASSWORD
+    #   - name: ADMIN_PASSWORD
+    #     valueFrom:
+    #       secretKeyRef:
+    #         name: netmaker-credentials
+    #         key: NM_POSTGRES_ADMIN_PASSWORD
     RWXStorageClassName: longhorn
     wireguard:
       # -- whether or not to use WireGuard on server
@@ -80,17 +80,17 @@ spec:
       # -- port for UI service
       uiPort: 80
     postgresql-ha:
-      env:
-        - name: REPMGR_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: netmaker-credentials
-              key: NM_POSTGRES_REPMGR_PASSWORD
-        - name: ADMIN_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: netmaker-credentials
-              key: NM_POSTGRES_ADMIN_PASSWORD
+      # env:
+      #   - name: REPMGR_PASSWORD
+      #     valueFrom:
+      #       secretKeyRef:
+      #         name: netmaker-credentials
+      #         key: NM_POSTGRES_REPMGR_PASSWORD
+      #   - name: ADMIN_PASSWORD
+      #     valueFrom:
+      #       secretKeyRef:
+      #         name: netmaker-credentials
+      #         key: NM_POSTGRES_ADMIN_PASSWORD
       postgresql:
         # -- postgres user to generate
         username: netmaker
@@ -100,9 +100,11 @@ spec:
         database: netmaker
         # -- postgress number of replicas to deploy
         replicaCount: 2
-        repmgrPassword: ${NM_POSTGRES_REPMGR_PASSWORD}
+        # repmgrPassword: ${NM_POSTGRES_REPMGR_PASSWORD}
+        repmgrPassword: ObwZW22CUg
       pgpool:
-        adminPassword: ${NM_POSTGRES_ADMIN_PASSWORD}
+        # adminPassword: ${NM_POSTGRES_ADMIN_PASSWORD}
+        adminPassword: WtGFYeDEz8
       persistence:
         # -- size of postgres DB
         size: 1Gi
