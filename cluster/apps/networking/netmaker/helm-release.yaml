@@ -1,0 +1,59 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: netmaker
+  namespace: default
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: netmaker
+      version: 0.2.0
+      sourceRef:
+        kind: HelmRepository
+        name: imtoanle
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    wireguard:
+      # -- whether or not to use WireGuard on server
+      enabled: true
+      # -- whether or not to use Kernel WG (should be false unless WireGuard is installed on hosts).
+      kernel: true
+    baseDomain: nm.fat-space.com
+    ingress:
+      # -- attempts to configure ingress if true
+      enabled: true
+      className: nginx
+      tls:
+        enabled: true
+      annotations:
+        nginx:
+          # -- Redirect http to https
+          # nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+          # -- destination addr for route
+          # nginx.ingress.kubernetes.io/rewrite-target: /
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns/is-public: "true"
+      hostPrefix:
+        # -- ui route subdomain
+        ui: 'dashboard.'
+        # -- api (REST) route subdomain
+        rest: 'api.'
+        # -- mqtt route subdomain
+        broker: 'broker.'
+    dns:
+      # -- whether or not to deploy coredns
+      enabled: true
+      clusterIP: 10.43.69.69
+      RWX:
+        storageClassName: longhorn
