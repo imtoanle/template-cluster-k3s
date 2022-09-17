@@ -78,9 +78,17 @@ spec:
         database: netmaker
         # -- postgress number of replicas to deploy
         replicaCount: 2
-        repmgrPassword: ObwZW22CUg
+        repmgrPassword:
+          valueFrom:
+            secretKeyRef:
+              name: netmaker-credentials
+              key: postgresRepmgrPassword
       pgpool:
-        adminPassword: WtGFYeDEz8
+        adminPassword:
+          valueFrom:
+            secretKeyRef:
+              name: netmaker-credentials
+              key: postgresAdminPassword
       persistence:
         # -- size of postgres DB
         size: 1Gi
