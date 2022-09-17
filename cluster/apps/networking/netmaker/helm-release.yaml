@@ -55,10 +55,10 @@ spec:
         broker: 'broker.'
     dns:
       # -- whether or not to deploy coredns
-      enabled: true
-      clusterIP: 10.43.69.69
-      RWX:
-        storageClassName: longhorn
+      enabled: false
+      # clusterIP: 10.43.69.69
+      # RWX:
+      #   storageClassName: longhorn
     service:
       # -- type for netmaker server services
       type: ClusterIP
