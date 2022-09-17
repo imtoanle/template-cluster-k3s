@@ -23,6 +23,17 @@ spec:
     remediation:
       retries: 5
   values:
+    env:
+      - name: REPMGR_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: netmaker-credentials
+            key: postgresRepmgrPassword
+      - name: ADMIN_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: netmaker-credentials
+            key: postgresAdminPassword
     RWXStorageClassName: longhorn
     wireguard:
       # -- whether or not to use WireGuard on server
@@ -78,17 +89,9 @@ spec:
         database: netmaker
         # -- postgress number of replicas to deploy
         replicaCount: 2
-        repmgrPassword:
-          valueFrom:
-            secretKeyRef:
-              name: netmaker-credentials
-              key: postgresRepmgrPassword
+        repmgrPassword: '{REPMGR_PASSWORD}'
       pgpool:
-        adminPassword:
-          valueFrom:
-            secretKeyRef:
-              name: netmaker-credentials
-              key: postgresAdminPassword
+        adminPassword: '{ADMIN_PASSWORD}'
       persistence:
         # -- size of postgres DB
         size: 1Gi
