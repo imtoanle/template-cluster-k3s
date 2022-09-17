@@ -36,13 +36,14 @@ spec:
       className: nginx
       tls:
         enabled: true
+        issuerName: "letsencrypt-production"
       annotations:
         nginx:
           # -- Redirect http to https
           # nginx.ingress.kubernetes.io/ssl-redirect: 'true'
           # -- destination addr for route
           # nginx.ingress.kubernetes.io/rewrite-target: /
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          # cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
           external-dns/is-public: "true"
       hostPrefix:
