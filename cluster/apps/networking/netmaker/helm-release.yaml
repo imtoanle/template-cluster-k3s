@@ -59,3 +59,12 @@ spec:
       clusterIP: 10.43.69.69
       RWX:
         storageClassName: longhorn
+    service:
+      # -- type for netmaker server services
+      type: ClusterIP
+      # -- port for API service
+      restPort: 8081
+      # -- port for MQTT service
+      mqPort: 32883
+      # -- port for UI service
+      uiPort: 80
