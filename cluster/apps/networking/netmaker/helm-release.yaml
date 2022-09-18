@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: netmaker
-      version: 0.2.1
+      version: 0.2.3
       sourceRef:
         kind: HelmRepository
         name: imtoanle
@@ -40,6 +40,7 @@ spec:
       enabled: true
       # -- whether or not to use Kernel WG (should be false unless WireGuard is installed on hosts).
       kernel: true
+      serviceType: LoadBalancer
     baseDomain: fat-space.com
     ingress:
       # -- attempts to configure ingress if true
