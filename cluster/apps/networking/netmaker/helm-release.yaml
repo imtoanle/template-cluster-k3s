@@ -39,7 +39,7 @@ spec:
       # -- whether or not to use WireGuard on server
       enabled: true
       # -- whether or not to use Kernel WG (should be false unless WireGuard is installed on hosts).
-      kernel: true
+      kernel: false
       serviceType: LoadBalancer
     baseDomain: fat-space.com
     ingress:
