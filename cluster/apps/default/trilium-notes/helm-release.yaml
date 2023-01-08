@@ -30,7 +30,7 @@ spec:
       strategy: RollingUpdate
     image:
       repository: zadam/trilium
-      tag: 0.50.2
+      tag: 0.57-latest
     service:
       main:
         ports:
