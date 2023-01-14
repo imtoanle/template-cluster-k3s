@@ -24,6 +24,9 @@ spec:
       retries: 5
   values:
     config:
+      executions:
+        pruneData: "true" # prune executions by default
+        pruneDataMaxAge: 3760
       database:
         type: "sqlite"
       generic:
