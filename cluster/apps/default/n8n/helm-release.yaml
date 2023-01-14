@@ -23,10 +23,15 @@ spec:
     remediation:
       retries: 5
   values:
-    database:
-      type: "sqlite"
-    generic:
-      timezone: "Asia/Ho_Chi_Minh"
+    config:
+      database:
+        type: "sqlite"
+      generic:
+        timezone: "Asia/Ho_Chi_Minh"
+    secret:
+      security:
+        basicAuth:
+          active: false
     persistence:
       enabled: true
       storageClass: longhorn
