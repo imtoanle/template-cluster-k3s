@@ -23,6 +23,8 @@ spec:
     remediation:
       retries: 5
   values:
+    n8n:
+      encryption_key: 356b6bf655637504d2e2fa40
     config:
       executions:
         pruneData: "true" # prune executions by default
