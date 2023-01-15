@@ -26,7 +26,7 @@ spec:
     auth:
       username: coder
       database: coder
-      existingSecret: coder-db-credentials
+      existingSecret: 'coder-db-credentials'
       secretKeys:
         userPasswordKey: password
     primary:
