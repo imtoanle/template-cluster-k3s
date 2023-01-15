@@ -22,18 +22,13 @@ spec:
   upgrade:
     remediation:
       retries: 5
-  env:
-    - name: USER_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: coder-db-credentials
-          key: password
-
   values:
     auth:
       username: coder
-      password: "${USER_PASSWORD}"
       database: coder
+      existingSecret: coder-db-credentials
+      secretKeys:
+        userPasswordKey: password
     primary:
       persistence:
         enabled: true
