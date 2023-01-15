@@ -50,8 +50,6 @@ spec:
         external-dns/is-public: "true"
       hosts:
         - host: &host "n8n.${SECRET_DOMAIN}"
-          paths:
-            - path: /
       tls:
         - hosts:
             - *host
