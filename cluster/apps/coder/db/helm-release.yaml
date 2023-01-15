@@ -22,18 +22,20 @@ spec:
   upgrade:
     remediation:
       retries: 5
+  env:
+    - name: USER_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: coder-db-credentials
+          key: password
+
   values:
     auth:
       username: coder
       password: "${USER_PASSWORD}"
       database: coder
-    persistence:
-      enabled: true
-      storageClass: longhorn
-      size: 20Gi
-    env:
-      - name: USER_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: coder-db-credentials
-            key: password
+    primary:
+      persistence:
+        enabled: true
+        storageClass: longhorn
+        size: 20Gi
