@@ -23,15 +23,13 @@ spec:
     remediation:
       retries: 5
   values:
-    global:
-      postgresql:
-        auth:
-          username: coder
-          database: coder
-          existingSecret: coder-db-postgresql
-          secretKeys:
-            userPasswordKey: password
-            adminPasswordKey: postgres-password
+    auth:
+      username: coder
+      database: coder
+      existingSecret: coder-db-credentials
+      secretKeys:
+        userPasswordKey: password
+        adminPasswordKey: postgres-password
     primary:
       persistence:
         enabled: true
