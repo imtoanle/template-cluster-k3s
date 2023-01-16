@@ -38,6 +38,8 @@ spec:
         # If you're just trying Coder, access the dashboard via the service IP.
         - name: CODER_ACCESS_URL
           value: "https://coder.fat-space.com"
+        - name: CODER_WILDCARD_ACCESS_URL
+          value: "*.coder.fat-space.com"
       ingress:
         enable: true
         className: 'nginx'
