@@ -48,6 +48,8 @@ spec:
           value: "45a0eebf655a110cd409"
         - name: CODER_OAUTH2_GITHUB_CLIENT_SECRET
           value: "f53690ca6332792f5d0d78797030f0852acc76d6"
+        - name: CODER_OAUTH2_GITHUB_ALLOW_EVERYONE
+          value: "true"
       ingress:
         enable: true
         className: 'nginx'
