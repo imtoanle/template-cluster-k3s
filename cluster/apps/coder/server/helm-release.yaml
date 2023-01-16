@@ -39,12 +39,12 @@ spec:
         - name: CODER_ACCESS_URL
           value: "https://coder.fat-space.com"
         - name: CODER_WILDCARD_ACCESS_URL
-          value: "*-coder.fat-space.com"
+          value: "*.coderv2.fat-space.com"
       ingress:
         enable: true
         className: 'nginx'
         host: "coder.${SECRET_DOMAIN}"
-        wildcardHost: "*-coder.fat-space.com"
+        wildcardHost: "*.coderv2.fat-space.com"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
