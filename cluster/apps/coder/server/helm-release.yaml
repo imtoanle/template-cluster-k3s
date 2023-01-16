@@ -42,6 +42,7 @@ spec:
         enable: true
         className: 'nginx'
         host: "coder.${SECRET_DOMAIN}"
+        wildcardHost: "*.coder.fat-space.com"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
@@ -49,3 +50,4 @@ spec:
         tls:
           enable: true
           secretName: coder-tls
+          wildcardSecretName: wildcard-coder-tls
