@@ -24,7 +24,7 @@ spec:
       retries: 5
   values:
     global:
-      storageClass: longhorn
+      storageClass: ceph-block
       postgresql:
         auth:
           username: coder
@@ -32,5 +32,5 @@ spec:
     primary:
       persistence:
         enabled: true
-        storageClass: longhorn
-        size: 20Gi
+        storageClass: ceph-block
+        size: 10Gi
