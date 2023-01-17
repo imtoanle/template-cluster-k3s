@@ -16,5 +16,6 @@ resources:
   - metallb.yaml
   - metrics-server.yaml
   - nfs-subdir-external-provisioner.yaml
+  - rook-ceph.yaml
   - stakater.yaml
   - weaveworks-kured.yaml
