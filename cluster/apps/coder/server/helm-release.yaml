@@ -44,10 +44,14 @@ spec:
           value: "true"
         - name: CODER_OAUTH2_GITHUB_ALLOWED_ORGS
           value: "Fat-Space"
+        # - name: CODER_OAUTH2_GITHUB_CLIENT_ID
+        #   value: "45a0eebf655a110cd409"
+        # - name: CODER_OAUTH2_GITHUB_CLIENT_SECRET
+        #   value: "0fa0b001dc17c892e317070bd0e92536419c4c64"
         - name: CODER_OAUTH2_GITHUB_CLIENT_ID
-          value: "45a0eebf655a110cd409"
+          value: "70c30ba5f5b4119d81d4"
         - name: CODER_OAUTH2_GITHUB_CLIENT_SECRET
-          value: "0fa0b001dc17c892e317070bd0e92536419c4c64"
+          value: "5879dff90d58ceb07901d55fd01f71fb5b5751cc"
       ingress:
         enable: true
         className: 'nginx'
