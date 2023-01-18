@@ -40,6 +40,14 @@ spec:
           value: "https://coder.imrealman.com"
         - name: CODER_WILDCARD_ACCESS_URL
           value: "*-coder.imrealman.com"
+        - name: CODER_OAUTH2_GITHUB_ALLOW_SIGNUPS
+          value: "true"
+        - name: CODER_OAUTH2_GITHUB_ALLOWED_ORGS
+          value: "Fat-Space"
+        - name: CODER_OAUTH2_GITHUB_CLIENT_ID
+          value: "45a0eebf655a110cd409"
+        - name: CODER_OAUTH2_GITHUB_CLIENT_SECRET
+          value: "0fa0b001dc17c892e317070bd0e92536419c4c64"
       ingress:
         enable: true
         className: 'nginx'
