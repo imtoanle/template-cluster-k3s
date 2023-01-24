@@ -30,7 +30,7 @@ spec:
         annotations: {}
         serviceType: LoadBalancer
       # -- whether or not to use Kernel WG (should be false unless WireGuard is installed on hosts).
-      kernel: true
+      kernel: false
       # -- max number of networks that Netmaker will support if running with WireGuard enabled
       networkLimit: 10
     baseDomain: "${SECRET_DOMAIN}"
