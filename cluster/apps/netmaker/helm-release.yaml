@@ -70,9 +70,12 @@ spec:
         password: netmaker
         # -- postgress db to generate
         database: netmaker
+        repmgrPassword: ObwZW22CUg
         # -- postgress number of replicas to deploy
         replicaCount: 2
         enabled: true
+      pgpool:
+        adminPassword: WtGFYeDEz8
       persistence:
         # -- size of postgres DB
         size: 1Gi
