@@ -24,7 +24,15 @@ spec:
       retries: 6
   values:
     wireguard:
-      kernel: true
+      # -- whether or not to use WireGuard on server
+      enabled: true
+      service:
+        annotations: {}
+        serviceType: LoadBalancer
+      # -- whether or not to use Kernel WG (should be false unless WireGuard is installed on hosts).
+      kernel: false
+      # -- max number of networks that Netmaker will support if running with WireGuard enabled
+      networkLimit: 10
     baseDomain: "${SECRET_DOMAIN}"
     dns:
       enabled: true
