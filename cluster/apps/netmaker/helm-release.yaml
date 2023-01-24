@@ -57,11 +57,11 @@ spec:
           nginx.ingress.kubernetes.io/rewrite-target: /
       hostPrefix:
         # -- ui route subdomain
-        ui: 'nm-dashboard.'
+        ui: 'dashboard.'
         # -- api (REST) route subdomain
-        rest: 'nm-api.'
+        rest: 'api.'
         # -- mqtt route subdomain
-        broker: 'nm-broker.'
+        broker: 'broker.'
     postgresql-ha:
       postgresql:
         # -- postgres user to generate
