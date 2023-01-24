@@ -62,3 +62,18 @@ spec:
         rest: 'nm-api.'
         # -- mqtt route subdomain
         broker: 'nm-broker.'
+    postgresql-ha:
+      postgresql:
+        # -- postgres user to generate
+        username: netmaker
+        # -- postgres pass to generate
+        password: netmaker
+        # -- postgress db to generate
+        database: netmaker
+        # -- postgress number of replicas to deploy
+        replicaCount: 2
+        enabled: true
+      persistence:
+        # -- size of postgres DB
+        size: 1Gi
+        storageClass: longhorn
