@@ -6,6 +6,7 @@ resources:
   - default
   - flux-system
   - kube-system
+  - netmaker
   - networking
   - storage
   - system-upgrade

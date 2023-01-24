@@ -15,6 +15,7 @@ resources:
   - longhorn.yaml
   - metallb.yaml
   - metrics-server.yaml
+  - netmaker.yaml
   - nfs-subdir-external-provisioner.yaml
   - rook-ceph.yaml
   - stakater.yaml
