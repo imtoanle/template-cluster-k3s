@@ -63,6 +63,7 @@ spec:
         # -- mqtt route subdomain
         broker: 'broker.'
     postgresql-ha:
+      enabled: true
       postgresql:
         # -- postgres user to generate
         username: netmaker
