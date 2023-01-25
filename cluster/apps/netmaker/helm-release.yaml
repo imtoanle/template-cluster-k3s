@@ -51,14 +51,12 @@ spec:
         ui: {}
         rest: {}
         mq: {}
-        base:
-          # -- annotation to generate ACME certs if available
-          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-          external-dns/is-public: "true"
         tls:
           # -- use acme cert if available
           kubernetes.io/tls-acme: "true"
         nginx:
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns/is-public: "true"
           # -- Redirect http to https
           nginx.ingress.kubernetes.io/ssl-redirect: 'true'
           # -- destination addr for route
