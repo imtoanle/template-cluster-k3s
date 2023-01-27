@@ -72,6 +72,9 @@ spec:
         - secretName: mattermost-tls
           hosts:
             - *host
+    extraEnvVars:
+      - name: MM_SERVICESETTINGS_SITEURL
+        value: "https://chat.${SECRET_DOMAIN}"
     configJSON:
       ServiceSettings:
         SiteURL: "https://chat.${SECRET_DOMAIN}"
