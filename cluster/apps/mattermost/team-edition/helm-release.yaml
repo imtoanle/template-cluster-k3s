@@ -101,3 +101,7 @@ spec:
         accessMode: ReadWriteOnce
         size: 10Gi
       # existingClaim: ""
+    securityContext:
+      fsGroup: 0
+      runAsGroup: 0
+      runAsUser: 0
