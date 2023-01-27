@@ -75,6 +75,8 @@ spec:
     extraEnvVars:
       - name: MM_SERVICESETTINGS_SITEURL
         value: "https://chat.${SECRET_DOMAIN}"
+      - name: MM_SERVICESETTINGS_ENABLELOCALMODE
+        value: "true"
     configJSON:
       ServiceSettings:
         SiteURL: "https://chat.${SECRET_DOMAIN}"
