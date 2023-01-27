@@ -78,29 +78,16 @@ spec:
       TeamSettings:
         SiteName: "Mattermost on ${SECRET_DOMAIN}"
     mysql:
+      enabled: false
+    externalDB:
       enabled: true
-      mysqlRootPassword: "123123"
-      mysqlUser: "mattermost"
-      mysqlPassword: "123123"
-      mysqlDatabase: mattermost
 
-      repository: mysql
-      imageTag: '8.0.18'
-      testFramework:
-        enabled: false
+      ## postgres or mysql
+      externalDriverType: "postgres"
 
-      persistence:
-        enabled: true
-        ## If defined, storageClassName: <storageClass>
-        ## If set to "-", storageClassName: "", which disables dynamic provisioning
-        ## If undefined (the default) or set to null, no storageClassName spec is
-        ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-        ##   GKE, AWS & OpenStack)
-        ##
-        storageClass: longhorn
-        accessMode: ReadWriteOnce
-        size: 10Gi
-      # existingClaim: ""
+      ## postgres:  "<USERNAME>:<PASSWORD>@<HOST>:5432/<DATABASE_NAME>?sslmode=disable&connect_timeout=10"
+      ## mysql:     "<USERNAME>:<PASSWORD>@tcp(<HOST>:3306)/<DATABASE_NAME>?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s"
+      externalConnectionString: "<USERNAME>:<PASSWORD>@<HOST>:5432/<DATABASE_NAME>?sslmode=disable&connect_timeout=10"
     securityContext:
       fsGroup: 2000
       runAsGroup: 2000
