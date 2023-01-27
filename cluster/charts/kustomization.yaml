@@ -13,6 +13,7 @@ resources:
   - jetstack.yaml
   - k8s-gateway.yaml
   - longhorn.yaml
+  - mattermost.yaml
   - metallb.yaml
   - metrics-server.yaml
   - netmaker.yaml
