@@ -1,0 +1,45 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mattermost-push-proxy
+  namespace: mattermost
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: mattermost-push-proxy
+      version: 0.7.0
+      sourceRef:
+        kind: HelmRepository
+        name: mattermost
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+        external-dns/is-public: "true"
+        kubernetes.io/ingress.class: nginx
+        # kubernetes.io/ingress.class: nginx
+        # kubernetes.io/tls-acme: "true"
+      hosts:
+        - host: &host "push-proxy-chat.${SECRET_DOMAIN}"
+          paths:
+            - path: /
+              # -- pathType (e.g. ImplementationSpecific, Prefix, .. etc.)
+              # pathType: Prefix
+      tls:
+        - secretName: push-proxy-mattermost-tls
+          hosts:
+            - *host
