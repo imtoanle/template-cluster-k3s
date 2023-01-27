@@ -72,6 +72,11 @@ spec:
         - secretName: mattermost-tls
           hosts:
             - *host
+    configJSON:
+      ServiceSettings:
+        SiteURL: "https://chat.${SECRET_DOMAIN}"
+      TeamSettings:
+        SiteName: "Mattermost on ${SECRET_DOMAIN}"
     mysql:
       enabled: true
       mysqlRootPassword: "123123"
