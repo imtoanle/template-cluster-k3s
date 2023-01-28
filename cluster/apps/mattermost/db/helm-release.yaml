@@ -29,6 +29,7 @@ spec:
         auth:
           username: mattermost-team-edition
           database: mattermost-team-edition
+          existingSecret: mattermost-secrets
     primary:
       persistence:
         enabled: true

@@ -75,8 +75,11 @@ spec:
     extraEnvVars:
       - name: MM_SERVICESETTINGS_SITEURL
         value: "https://chat.${SECRET_DOMAIN}"
-      - name: MM_SERVICESETTINGS_ENABLELOCALMODE
-        value: "true"
+      - name: MM_CONFIG
+        valueFrom:
+          secretKeyRef:
+            name: mattermost-secrets
+            key: db-url
     configJSON:
       ServiceSettings:
         SiteURL: "https://chat.${SECRET_DOMAIN}"
@@ -86,13 +89,6 @@ spec:
       enabled: false
     externalDB:
       enabled: true
-
-      ## postgres or mysql
-      externalDriverType: "postgres"
-
-      ## postgres:  "<USERNAME>:<PASSWORD>@<HOST>:5432/<DATABASE_NAME>?sslmode=disable&connect_timeout=10"
-      ## mysql:     "<USERNAME>:<PASSWORD>@tcp(<HOST>:3306)/<DATABASE_NAME>?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s"
-      externalConnectionString: "mattermost-team-edition:sm3evvKegd@mattermost-db-postgresql.mattermost.svc.cluster.local:5432/mattermost-team-edition?sslmode=disable&connect_timeout=10"
     securityContext:
       fsGroup: 2000
       runAsGroup: 2000
