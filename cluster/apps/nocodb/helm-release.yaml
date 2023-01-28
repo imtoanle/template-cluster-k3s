@@ -67,4 +67,5 @@ spec:
       data:
         enabled: true
         accessMode: ReadWriteOnce
+        storageClass: longhorn
         size: 5Gi
