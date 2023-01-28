@@ -9,5 +9,6 @@ resources:
   - mattermost
   - netmaker
   - networking
+  - nocodb
   - storage
   - system-upgrade
