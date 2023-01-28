@@ -75,11 +75,6 @@ spec:
     extraEnvVars:
       - name: MM_SERVICESETTINGS_SITEURL
         value: "https://chat.${SECRET_DOMAIN}"
-      - name: MM_CONFIG
-        valueFrom:
-          secretKeyRef:
-            name: mattermost-secrets
-            key: db-url
     configJSON:
       ServiceSettings:
         SiteURL: "https://chat.${SECRET_DOMAIN}"
@@ -89,6 +84,7 @@ spec:
       enabled: false
     externalDB:
       enabled: true
+      existingSecrets: mattermost-secrets
     securityContext:
       fsGroup: 2000
       runAsGroup: 2000
