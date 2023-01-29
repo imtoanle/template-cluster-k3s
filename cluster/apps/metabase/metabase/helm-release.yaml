@@ -1,0 +1,58 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: metabase
+  namespace: metabase
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: metabase
+      version: 0.1.0
+      sourceRef:
+        kind: HelmRepository
+        name: imtoanle
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    env:
+      - name: MB_DB_TYPE
+        value: postgres
+      - name: MB_DB_DBNAME
+        value: metabase
+      - name: MB_DB_PORT
+        value: 5432
+      - name: MB_DB_USER
+        value: metabase
+      - name: MB_DB_HOST
+        value: metabase-db-postgresql.metabase.svc.cluster.local
+      - name: MB_DB_PASS
+        valueFrom:
+          secretKeyRef:
+            name: db-secrets
+            key: password
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns/is-public: "true"
+        hosts:
+          - host: &host "metabase.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: "metabase-tls"
