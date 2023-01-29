@@ -18,6 +18,7 @@ resources:
   - metrics-server.yaml
   - netmaker.yaml
   - nfs-subdir-external-provisioner.yaml
+  - prometheus-community.yaml
   - rook-ceph.yaml
   - stakater.yaml
   - weaveworks-kured.yaml
