@@ -8,7 +8,6 @@ resources:
   - hajimari
   - home-assistant
   - mosquitto
-  - n8n
   - photoprism
   - qbittorrent
   - trilium-notes

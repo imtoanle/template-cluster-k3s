@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: n8n
-  namespace: default
+  namespace: n8n
 spec:
   interval: 15m
   chart:
@@ -23,8 +23,6 @@ spec:
     remediation:
       retries: 5
   values:
-    n8n:
-      encryption_key: 356b6bf655637504d2e2fa40
     extraEnv:
       - name: WEBHOOK_URL
         value: "https://n8n.${SECRET_DOMAIN}/"
