@@ -24,13 +24,7 @@ spec:
       retries: 5
   values:
     extraEnv:
-      - name: WEBHOOK_URL
-        value: "https://n8n.${SECRET_DOMAIN}/"
-      - name: N8N_ENCRYPTION_KEY
-        valueFrom:
-          secretKeyRef:
-            name: n8n-secrets
-            key: encryption_key
+      WEBHOOK_URL: "https://n8n.${SECRET_DOMAIN}/"
     config:
       executions:
         pruneData: "true" # prune executions by default
