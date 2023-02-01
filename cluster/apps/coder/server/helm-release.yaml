@@ -55,12 +55,12 @@ spec:
       ingress:
         enable: true
         className: 'nginx'
-        host: "coder.imrealman.com"
+        host: "coder.${SECRET_DOMAIN}"
         wildcardHost: "*-coder.imrealman.com"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-          external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+          # external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          # external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
           # external-dns/is-public: "true"
         tls:
           enable: true
