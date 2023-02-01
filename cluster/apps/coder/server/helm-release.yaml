@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: coder
-      version: 0.15.1
+      version: 0.15.3
       sourceRef:
         kind: HelmRepository
         name: coder-v2
@@ -55,11 +55,12 @@ spec:
       ingress:
         enable: true
         className: 'nginx'
-        host: "coder.${SECRET_DOMAIN}"
+        host: "coder.imrealman.com"
         wildcardHost: "*-coder.imrealman.com"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          # external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
           # external-dns/is-public: "true"
         tls:
           enable: true
