@@ -55,7 +55,7 @@ spec:
       ingress:
         enable: true
         className: 'nginx'
-        host: "coder.imrealman.com"
+        host: "coder.${SECRET_DOMAIN}"
         wildcardHost: "*-coder.imrealman.com"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
