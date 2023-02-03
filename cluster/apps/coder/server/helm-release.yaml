@@ -37,9 +37,9 @@ spec:
         # (Optional) For production deployments the access URL should be set.
         # If you're just trying Coder, access the dashboard via the service IP.
         - name: CODER_ACCESS_URL
-          value: "https://coder.imrealman.com"
+          value: "https://coder.${SECRET_DOMAIN}"
         - name: CODER_WILDCARD_ACCESS_URL
-          value: "*-coder.imrealman.com"
+          value: "*.coder.${SECRET_DOMAIN}"
         - name: CODER_OAUTH2_GITHUB_ALLOW_SIGNUPS
           value: "true"
         - name: CODER_OAUTH2_GITHUB_ALLOWED_ORGS
@@ -55,13 +55,13 @@ spec:
       ingress:
         enable: true
         className: 'nginx'
-        host: "coder.imrealman.com"
-        wildcardHost: "*-coder.imrealman.com"
+        host: "coder.${SECRET_DOMAIN}"
+        wildcardHost: "*.coder.${SECRET_DOMAIN}"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          # external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-          # external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
-          # external-dns/is-public: "true"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+          external-dns/is-public: "true"
         tls:
           enable: true
           secretName: coder-tls
