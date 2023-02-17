@@ -10,7 +10,6 @@ resources:
   - metabase
   - monitoring
   - n8n
-  - netmaker
   - networking
   - nocodb
   - storage
