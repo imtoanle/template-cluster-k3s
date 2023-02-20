@@ -26,3 +26,8 @@ spec:
     auth:
       existingSecret: db-secrets
       existingSecretPasswordKey: redis-password
+    master:
+      persistence:
+        enabled: true
+        storageClass: longhorn
+        size: 10Gi
