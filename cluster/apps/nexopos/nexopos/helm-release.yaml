@@ -1,0 +1,100 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nexopos
+  namespace: nexopos
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: nexopos
+      version: 0.1.0
+      sourceRef:
+        kind: HelmRepository
+        name: imtoanle
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    env:
+      - name: APP_NAME
+        value: "Vietwings POS"
+      - name: APP_ENV
+        value: production
+      - name: APP_KEY
+        valueFrom:
+          secretKeyRef:
+            name: db-secrets
+            key: nexopos-app-key
+      - name: APP_DEBUG
+        value: true
+      - name: APP_URL
+        value: "https://vietwings-pos.${SECRET_DOMAIN}"
+      - name: DB_CONNECTION
+        value: mysql
+      - name: DB_HOST
+        value: nexopos-db-mysql.nexopos.svc.cluster.local
+      - name: DB_PORT
+        value: 3306
+      - name: DB_DATABASE
+        value: vietwings_nexopos
+      - name: DB_USERNAME
+        value: vietwings_nexopos
+      - name: DB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: db-secrets
+            key: mysql-password
+      - name: SESSION_DOMAIN
+        value: "vietwings-pos.${SECRET_DOMAIN}"
+      - name: REDIS_HOST
+        value: nexopos-redis.nexopos.svc.cluster.local
+      - name: REDIS_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: db-secrets
+            key: redis-password
+      - name: REDIS_PORT
+        value: 6379
+      # - name: MAIL_MAILER
+      #   value: smtp
+      # - name: MAIL_HOST
+      #   value: smtp.mailtrap.io
+      # - name: MAIL_PORT
+      #   value: 2525
+      # - name: MAIL_USERNAME
+      #   value:
+      # - name: MAIL_PASSWORD
+      #   value:
+      # - name: MAIL_ENCRYPTION
+      #   value:
+      # - name: MAIL_FROM_ADDRESS
+      #   value:
+      # - name: MAIL_FROM_NAME
+      #   value:
+      - name: NS_ENV
+        value: production
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns/is-public: "true"
+        hosts:
+          - host: &host "vietwings-pos.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: "nexopos-tls"
