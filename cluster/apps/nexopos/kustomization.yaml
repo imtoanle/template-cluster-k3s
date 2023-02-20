@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - secret.sops.yaml
+  - env-config.sops.yaml
   - db
   - redis
   - nexopos
