@@ -23,6 +23,9 @@ spec:
     remediation:
       retries: 5
   values:
+    image:
+      repository: ktoanlba/nexopos
+      tag: v4.8.14-php8.1
     ingress:
       main:
         enabled: true
