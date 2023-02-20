@@ -99,11 +99,11 @@ spec:
           - hosts:
               - *host
             secretName: "nexopos-tls"
-    persistence:
-      config:
-        enabled: true
-        type: "configMap"
-        name: "env"
-        mountPath: "/app/.env"
-        subPath: ".env"
-        defaultMode: 0755
+    # persistence:
+    #   config:
+    #     enabled: true
+    #     type: "configMap"
+    #     name: "env"
+    #     mountPath: "/app/.env"
+    #     subPath: ".env"
+    #     defaultMode: 0755
