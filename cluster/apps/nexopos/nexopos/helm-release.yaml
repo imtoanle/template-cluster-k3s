@@ -106,3 +106,4 @@ spec:
         name: "env"
         mountPath: "/app/.env"
         subPath: ".env"
+        defaultMode: 0755
