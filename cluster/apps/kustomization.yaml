@@ -11,6 +11,7 @@ resources:
   - monitoring
   - n8n
   - networking
+  - nexopos
   - nocodb
   - storage
   - system-upgrade
