@@ -16,6 +16,7 @@ resources:
   - mattermost.yaml
   - metallb.yaml
   - metrics-server.yaml
+  - minio.yaml
   - netmaker.yaml
   - nfs-subdir-external-provisioner.yaml
   - prometheus-community.yaml
