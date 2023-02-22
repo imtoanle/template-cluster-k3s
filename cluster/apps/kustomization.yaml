@@ -8,6 +8,7 @@ resources:
   - kube-system
   - mattermost
   - metabase
+  - minio
   - monitoring
   - n8n
   - networking

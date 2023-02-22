@@ -1,0 +1,79 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: minio
+  namespace: minio
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: minio
+      version: 5.0.7
+      sourceRef:
+        kind: HelmRepository
+        name: minio
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    clusterDomain: fat-space.local
+    existingSecret: user-secrets
+    persistence:
+      enabled: true
+      storageClass: longhorn-nvme3
+      accessMode: ReadWriteOnce
+      size: 500Gi
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        kubernetes.io/tls-acme: "true"
+        kubernetes.io/ingress.allow-http: "false"
+        kubernetes.io/ingress.global-static-ip-name: ""
+        nginx.ingress.kubernetes.io/secure-backends: "true"
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+        nginx.ingress.kubernetes.io/whitelist-source-range: 0.0.0.0/0
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+        external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+        external-dns/is-public: "true"
+      path: /
+      hosts:
+        - &host "minio.${SECRET_DOMAIN}"
+      tls:
+        - secretName: minio-ingress-tls
+          hosts:
+            - *host
+    consoleIngress:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        kubernetes.io/tls-acme: "true"
+        kubernetes.io/ingress.allow-http: "false"
+        kubernetes.io/ingress.global-static-ip-name: ""
+        nginx.ingress.kubernetes.io/secure-backends: "true"
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+        nginx.ingress.kubernetes.io/whitelist-source-range: 0.0.0.0/0
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+        external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+        external-dns/is-public: "true"
+      path: /
+      hosts:
+        - &host "console.minio.${SECRET_DOMAIN}"
+      tls:
+        - secretName: minio-console-ingress-tls
+          hosts:
+            - *host
+    metrics:
+      serviceMonitor:
+        enabled: true
