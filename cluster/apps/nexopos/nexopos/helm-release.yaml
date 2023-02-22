@@ -25,7 +25,11 @@ spec:
   values:
     image:
       repository: ktoanlba/nexopos
-      tag: v4.8.14-build-3
+      tag: v4.8.14-build-4
+    podSecurityContext:
+      runAsUser: 1000
+      runAsGroup: 1000
+      fsGroup: 1000
     ingress:
       main:
         enabled: true
