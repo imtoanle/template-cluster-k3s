@@ -23,6 +23,7 @@ spec:
     remediation:
       retries: 5
   values:
+    mode: standalone
     clusterDomain: fat-space.local
     existingSecret: user-secrets
     persistence:
