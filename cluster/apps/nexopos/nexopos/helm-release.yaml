@@ -23,6 +23,8 @@ spec:
     remediation:
       retries: 5
   values:
+    env:
+      TZ: Asia/Ho_Chi_Minh
     image:
       repository: ktoanlba/nexopos
       tag: v4.8.14-build-5
