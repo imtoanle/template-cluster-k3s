@@ -25,7 +25,7 @@ spec:
   values:
     image:
       repository: ktoanlba/nexopos
-      tag: v4.8.14-fix-2
+      tag: v4.8.14-build-3
     ingress:
       main:
         enabled: true
@@ -51,3 +51,9 @@ spec:
         name: "env"
         mountPath: "/app/.env"
         subPath: ".env"
+      storage:
+        enabled: true
+        mountPath: /app/storage
+        accessMode: ReadWriteOnce
+        storageClass: longhorn
+        size: 10Gi
