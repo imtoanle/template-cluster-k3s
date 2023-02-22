@@ -25,7 +25,7 @@ spec:
   values:
     image:
       repository: ktoanlba/nexopos
-      tag: v4.8.14-build-4
+      tag: v4.8.14-build-5
     ingress:
       main:
         enabled: true
