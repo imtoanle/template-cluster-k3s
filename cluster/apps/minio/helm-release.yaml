@@ -24,8 +24,7 @@ spec:
       retries: 5
   values:
     mode: standalone
-    replicas: 3
-    clusterDomain: fat-space.local
+    replicas: 1
     existingSecret: user-secrets
     persistence:
       enabled: true
