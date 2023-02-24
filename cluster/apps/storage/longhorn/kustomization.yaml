@@ -5,3 +5,4 @@ resources:
   - namespace.yaml
   - helm-release.yaml
   - nvme3-storageclass.yaml
+  - minio-storageclass.yaml

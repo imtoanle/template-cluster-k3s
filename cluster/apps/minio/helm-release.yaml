@@ -23,12 +23,12 @@ spec:
     remediation:
       retries: 5
   values:
-    mode: standalone
-    replicas: 1
+    mode: distributed
+    replicas: 2
     existingSecret: user-secrets
     persistence:
       enabled: true
-      storageClass: longhorn-nvme3
+      storageClass: longhorn-minio
       accessMode: ReadWriteOnce
       size: 500Gi
     ingress:
