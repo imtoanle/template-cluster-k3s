@@ -23,6 +23,9 @@ spec:
     remediation:
       retries: 5
   values:
+    environment:
+      MINIO_SERVER_URL: https://minio.fat-space.com
+      MINIO_BROWSER_REDIRECT_URL: https://console.minio.fat-space.com
     mode: distributed
     drivesPerNode: 1
     replicas: 2
