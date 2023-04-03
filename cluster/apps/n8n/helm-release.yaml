@@ -25,12 +25,20 @@ spec:
   values:
     extraEnv:
       WEBHOOK_URL: "https://n8n.${SECRET_DOMAIN}/"
+    extraEnvSecrets:
+      DB_POSTGRESDB_PASSWORD:
+        name: n8n-db-credentials
+        key: postgres-password
     config:
       executions:
         pruneData: "true" # prune executions by default
         pruneDataMaxAge: 3760
       database:
-        type: "sqlite"
+        type: "postgresdb"
+        postgresdb:
+          database: n8n
+          host: n8n-db-postgresql.n8n.svc.cluster.local
+          user: n8n
       generic:
         timezone: "Asia/Ho_Chi_Minh"
     secret:
