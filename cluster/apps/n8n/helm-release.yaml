@@ -24,13 +24,7 @@ spec:
       retries: 5
   values:
     extraEnv:
-      - name: WEBHOOK_URL
-        value: "https://n8n.${SECRET_DOMAIN}/"
-      - name: DB_POSTGRESDB_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: n8n-db-credentials
-            key: password
+      WEBHOOK_URL: "https://n8n.${SECRET_DOMAIN}/"
     extraEnvSecrets:
       DB_POSTGRESDB_PASSWORD:
         name: n8n-db-credentials
