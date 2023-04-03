@@ -29,8 +29,9 @@ spec:
         auth:
           username: n8n
           database: n8n
+          existingSecret: n8n-db-credentials
     primary:
       persistence:
         enabled: true
         storageClass: longhorn
-        size: 20Gi
+        size: 10Gi
