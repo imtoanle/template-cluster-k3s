@@ -25,6 +25,10 @@ spec:
   values:
     extraEnv:
       WEBHOOK_URL: "https://n8n.${SECRET_DOMAIN}/"
+      DB_TYPE: postgresdb
+      DB_POSTGRESDB_DATABASE: n8n
+      DB_POSTGRESDB_HOST: n8n-db-postgresql.n8n.svc.cluster.local
+      DB_POSTGRESDB_USER: n8n
     extraEnvSecrets:
       DB_POSTGRESDB_PASSWORD:
         name: n8n-db-credentials
@@ -35,10 +39,6 @@ spec:
         pruneDataMaxAge: 3760
       database:
         type: "postgresdb"
-        postgresdb:
-          database: n8n
-          host: n8n-db-postgresql.n8n.svc.cluster.local
-          user: n8n
       generic:
         timezone: "Asia/Ho_Chi_Minh"
     secret:
