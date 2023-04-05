@@ -34,9 +34,6 @@ spec:
       DB_POSTGRESDB_PASSWORD:
         name: n8n-db-credentials
         key: password
-      DB_POSTGRESDB_PASSWORD:
-        name: n8n-db-credentials
-        key: password
     config:
       executions:
         pruneData: "true" # prune executions by default
