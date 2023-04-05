@@ -42,10 +42,6 @@ spec:
         type: "postgresdb"
       generic:
         timezone: "Asia/Ho_Chi_Minh"
-    secret:
-      security:
-        basicAuth:
-          active: false
     persistence:
       enabled: true
       storageClass: longhorn
