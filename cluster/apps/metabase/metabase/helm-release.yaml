@@ -23,6 +23,13 @@ spec:
     remediation:
       retries: 5
   values:
+    image:
+      # -- image repository
+      repository: metabase/metabase
+      # -- image tag
+      tag: v0.46.1
+      # -- image pull policy
+      pullPolicy: IfNotPresent
     env:
       - name: MB_DB_TYPE
         value: postgres
