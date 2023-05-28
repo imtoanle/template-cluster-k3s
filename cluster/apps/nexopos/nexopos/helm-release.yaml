@@ -28,7 +28,7 @@ spec:
       PHP_DATE_TIMEZONE: Asia/Ho_Chi_Minh
     image:
       repository: ktoanlba/nexopos
-      tag: v4.8.17
+      tag: v4.8.18-amd64
     ingress:
       main:
         enabled: true
@@ -60,3 +60,9 @@ spec:
         accessMode: ReadWriteOnce
         storageClass: longhorn
         size: 10Gi
+      modules:
+        enabled: true
+        mountPath: /app/modules
+        accessMode: ReadWriteOnce
+        storageClass: longhorn
+        size: 1Gi

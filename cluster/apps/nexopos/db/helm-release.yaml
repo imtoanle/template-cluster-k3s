@@ -8,8 +8,8 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: mysql
-      version: 9.4.9
+      chart: postgresql
+      version: 12.1.9
       sourceRef:
         kind: HelmRepository
         name: bitnami
@@ -23,13 +23,12 @@ spec:
     remediation:
       retries: 5
   values:
-    image:
-      repository: bitnami/mysql
-      tag: 5.7.41
-    auth:
-      database: vietwings_nexopos
-      username: vietwings_nexopos
-      existingSecret: db-secrets
+    global:
+      postgresql:
+        auth:
+          username: vietwings_nexopos
+          database: vietwings_nexopos
+          existingSecret: db-secrets
     primary:
       persistence:
         enabled: true
