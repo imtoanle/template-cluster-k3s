@@ -52,8 +52,14 @@ spec:
         enabled: true
         type: "configMap"
         name: "env"
-        mountPath: "/app/.env"
+        mountPath: "/app/.env.configmap"
         subPath: ".env"
+      envcopyscript:
+        enabled: true
+        type: "configMap"
+        name: "entry-scripts"
+        mountPath: "/opt/docker/provision/entrypoint.d/10.copy-env.sh"
+        subPath: "envcopy.sh"
       storage:
         enabled: true
         mountPath: /app/storage

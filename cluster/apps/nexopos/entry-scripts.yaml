@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: entry-scripts
+  namespace: nexopos
+data:
+  envcopy.sh: |
+    #!/bin/sh
+    cp /app/.env.configmap /app/.env
+    chown 1000:1000 /app/.env
