@@ -28,7 +28,7 @@ spec:
       PHP_DATE_TIMEZONE: Asia/Ho_Chi_Minh
     image:
       repository: ktoanlba/nexopos
-      tag: v4.8.18-build-2
+      tag: v4.8.18-build-3
     ingress:
       main:
         enabled: true
