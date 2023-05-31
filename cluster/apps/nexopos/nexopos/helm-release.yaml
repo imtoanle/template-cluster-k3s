@@ -28,7 +28,7 @@ spec:
       PHP_DATE_TIMEZONE: Asia/Ho_Chi_Minh
     image:
       repository: ktoanlba/nexopos
-      tag: v4.8.18-build-8-airprint
+      tag: v4.8.18-build-9-airprint
     ingress:
       main:
         enabled: true
