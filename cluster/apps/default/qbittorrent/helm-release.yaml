@@ -30,6 +30,12 @@ spec:
         storageClass: media-nfs
         accessMode: ReadWriteOnce
         size: 5000Gi
+      config:
+        enabled: true
+        mountPath: /config
+        storageClass: longhorn
+        accessMode: ReadWriteOnce
+        size: 1Gi
     ingress:
       main:
         enabled: true
