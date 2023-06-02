@@ -53,3 +53,7 @@ spec:
           - hosts:
               - *host
             secretName: "qbittorrent-tls"
+
+    securityContext:
+      runAsGroup: 1000
+      runAsUser: 1000
