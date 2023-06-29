@@ -28,6 +28,11 @@ spec:
     image:
       repository: aitbase/comabase-web
       tag: 1.0.0
+    service:
+      main:
+        ports:
+          http:
+            port: 80
     ingress:
       main:
         enabled: true
