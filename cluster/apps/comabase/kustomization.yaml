@@ -5,6 +5,8 @@ resources:
   - namespace.yaml
   - secret.sops.yaml
   - backend-config.sops.yaml
+  - web-config.sops.yaml
   - db
   - redis
   - backend
+  - frontend
