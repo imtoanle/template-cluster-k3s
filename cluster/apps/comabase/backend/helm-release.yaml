@@ -30,22 +30,7 @@ spec:
       tag: 1.0.0
     ingress:
       main:
-        enabled: true
-        ingressClassName: "nginx"
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-          external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
-          external-dns/is-public: "true"
-        hosts:
-          - host: &host "comabase-api.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - *host
-            secretName: "comabase-tls"
+        enabled: false
     persistence:
       config:
         enabled: true
