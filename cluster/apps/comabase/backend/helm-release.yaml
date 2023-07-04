@@ -38,6 +38,12 @@ spec:
         name: "backend-config"
         mountPath: "/app/config.yaml"
         subPath: "config.yaml"
+      uploads:
+        enabled: true
+        mountPath: /app/uploads
+        storageClass: longhorn
+        accessMode: ReadWriteOnce
+        size: 1Gi
     # securityContext:
     #   runAsGroup: 1000
     #   runAsUser: 1000
