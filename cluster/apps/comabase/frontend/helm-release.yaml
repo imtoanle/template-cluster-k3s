@@ -43,14 +43,14 @@ spec:
           external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
           external-dns/is-public: "true"
         hosts:
-          - host: &host "comabase.${SECRET_DOMAIN}"
+          - host: &host "vietwings.aitbase.com"
             paths:
               - path: /
                 pathType: Prefix
         tls:
           - hosts:
               - *host
-            secretName: "comabase-web-tls"
+            secretName: "vietwings-comabase-web-tls"
     persistence:
       config:
         enabled: true
