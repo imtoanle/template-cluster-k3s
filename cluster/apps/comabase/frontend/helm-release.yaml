@@ -27,7 +27,7 @@ spec:
 
     image:
       repository: aitbase/comabase-web
-      tag: v1.1.6
+      tag: v1.1.7
     service:
       main:
         ports:
