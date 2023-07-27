@@ -27,7 +27,7 @@ spec:
       # -- image repository
       repository: metabase/metabase
       # -- image tag
-      tag: v0.46.1
+      tag: v0.46.6.2
       # -- image pull policy
       pullPolicy: IfNotPresent
     env:
