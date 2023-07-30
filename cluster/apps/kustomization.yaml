@@ -16,4 +16,5 @@ resources:
   - nexopos
   - nocodb
   - storage
+  - superset
   - system-upgrade
