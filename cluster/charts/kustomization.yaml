@@ -22,4 +22,5 @@ resources:
   - prometheus-community.yaml
   - rook-ceph.yaml
   - stakater.yaml
+  - superset.yaml
   - weaveworks-kured.yaml
