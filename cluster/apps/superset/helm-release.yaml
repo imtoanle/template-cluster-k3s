@@ -23,6 +23,13 @@ spec:
     remediation:
       retries: 5
   values:
+    extraEnvRaw:
+      - name: DB_PASS
+        valueFrom:
+          secretKeyRef:
+            name: db-secrets
+            key: password
+
     postgresql:
       enabled: true
 
