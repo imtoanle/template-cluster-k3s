@@ -57,6 +57,7 @@ spec:
         kubernetes.io/tls-acme: "true"
         kubernetes.io/ingress.allow-http: "false"
         kubernetes.io/ingress.global-static-ip-name: ""
+        nginx.ingress.kubernetes.io/custom-http-errors: '401,403,404,501,502,503'
         cert-manager.io/cluster-issuer: "letsencrypt-production"
         external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
         external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
