@@ -23,6 +23,15 @@ spec:
     remediation:
       retries: 5
   values:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: NotIn
+                  values:
+                    - home-k3s-worker-7
     env:
 
     image:
@@ -31,6 +40,9 @@ spec:
     ingress:
       main:
         enabled: false
+    # securityContext:
+    #   runAsGroup: 1000
+    #   runAsUser: 1000
     persistence:
       config:
         enabled: true
@@ -44,6 +56,3 @@ spec:
         storageClass: longhorn
         accessMode: ReadWriteOnce
         size: 1Gi
-    # securityContext:
-    #   runAsGroup: 1000
-    #   runAsUser: 1000

@@ -23,6 +23,15 @@ spec:
     remediation:
       retries: 5
   values:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: NotIn
+                  values:
+                    - home-k3s-worker-7
     env:
 
     image:
