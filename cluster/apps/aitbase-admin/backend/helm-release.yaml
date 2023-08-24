@@ -8,7 +8,7 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: comabase
+      chart: aitbase-admin
       version: 1.0.1
       sourceRef:
         kind: HelmRepository
