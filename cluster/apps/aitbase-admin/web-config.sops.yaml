@@ -4,7 +4,7 @@ metadata:
     name: web-config
     namespace: aitbase-admin
 data:
-    nginx-my.conf: ENC[AES256_GCM,data:6CiYmQLYOAyx2X56cOOGZoQg+xR11mKnJfIHagKgPy+PrEApnjd0PpyrLfZbhf9uKgJM1oJQAL30Sxsiv4jA4F1EDdVzhvbATs/OcsT3qHbTAl4FmmekHjXxB7LDOdff4IBGCPFN+B+n+PuVNYr7fnBvEcm4ccwy5q8YfbMwS3fNloQQ1ZlmAObsqFcqUBwXzQ/b1ajF1tda9sOE3ojAgzMaHhWpiCGEjnzoQJjY2X6gVfWKNYxdeUTP8ShH1aZJhE6btyUOqFzyxEeLFGniDwpq6+P+RXYHwptCKs3hwiQlQC2XAAo60Sdvj2RUbaBwQIJAVcasyq8i9AM025VdQIHn/kY8CLpcQejecbY74tmLS347oUzEbUAsDdnKdn7qSuQK4ajpC1Oawsg+ti3doSvUZs9y6Io6Ng3hHO/xh2qnF4ntiBvAWWV7GuIBhFgxCjvO38Px7q+K4rprStqYg4z9raYqivSbqRBjf3bNiEjxBLjVaH+i5Kryg+Or54qejcU7Q5dUNsAduV7a+O8OYoAnX96/ztPqBHEFLVBEMizSaGJGXGmviowTA3Xoc4o8Yn7SEOfHlgerWRf6QkPDZd9dsIeF1eTFOtiWRGT7A0Ii/h/LpTE4EwAapY0uBOzfhxlGEPdL7MClzkZBE/s25ZjMP2g97aGtNlXiDxNZuVk26UZX5rkzoZuDSJTfludy7pMoBtX5/L3fW1a+daoFVjgoM17WDTLiP3nrYGkkqRUzIz9FuTSikQaxER7ltoWlt8kSFLxbxHQ0ffYoRbA4m1h9dVAl4J/uVsG0NcpyH/46UUaDdez5Ni5wEZYKz5x/FYsFemic2FnoUjemqKWTop4AkyButUMXRmepsxpQVqiMh+MAN//2zrc4H+G5UVT7huzjSDEg04zgufB6tnM5hl0nYL+LAysFAyfK3H3c7V2PVSAsUGsrRr/iZXczr9mf2T1hMC15NobtTi6XfTggDB7W91c/fhOT+Weq2u7I15SVqyqjuveDOZJ7Vs1dvpv7E9E0xLb4UFnh78IPp57v0N9DWPCkPqWnhk0Q8qTARxdE3bz0C4WKHf7YdoKYOHlWrJ+JNCZAfqidn8FIkFiD+6GoWg9+w2kO/guV/yg=,iv:9Ofh+ZLDOTGhCNWeyae3VnOl9VL9Zvd0A6LByOdBqzI=,tag:xWY4W1CQLhokl9SKp6GGlQ==,type:str]
+    nginx-my.conf: ENC[AES256_GCM,data:F2y+PxA0oBsulmfK3ohAVXqpAiijRCjOudG2GKaPEX+Dh0BFG1if2HZcSOAliHgdYZBAezSRP4Il6OwsVRCB+SvSmndWq1wCe84DSsrBKfr1ufnOZIfVLXwcTK+x0CtiKOiMGj9Y/s/0EkBEqiDgSAZbxmCcFKUOaDEbLGFOuUTx6y5i4Zy6RHTkY4tAkTqvi3ILbs4BgJsqwV5RXncJDAbA5edpTQ7ayTKqewBpOAdTkTuenn2nxZuDFHfD/ZJpAu43EBdetzdYVvxy7cbYrRM3A8ZpIrn1t2T4+55tKhb0wBrv4EifeVmfBD5uT2kXe16KDD4ZpcEL4nRH6rdJHioVg+ivaNzACYbPhWPMBVeGHmYCqENRZeYgzb89GnT3/wLBJaXiYM/CqU1ApUM7NWBFp5swC7+welxPcjFAQsloGTHnUij9cHXhgDPPFvfecivcGAhTLhry53jB3nR01QzHnYfCRmGgdggZcgsXvZXkn+k6zZ2Nomk9XYENX/Fzkkrcft9qzcGU7ZIjatz9CuBmdXxBESooFC6F65hhlQ3d5msQXvMRQCofo0G+SEhH4hDqBj22X2SMa1DKg54fQfOl+gH2W2tpQ1Hya8lXAyn8w9+0mThC3F2w7dcI/R5I2hI58LjgFjHvcsUIbGRFJiXbMvAOxFg+XxrfweCCacmyXndoZ9254MCsrtufCVASPy7VklJN4fidJ3WbL/qWclFm6fLbmq7g4dMyNx9sQBKJ0+/HnWZDczrdNLjHNXiVW/ZlEqp5LWyc198hNyZJx69qdC+y+9gkpoTM8H1mKFRyB8B60Gv9Lot+2ADuVXGtYkvcS+WmXm41UqB/Og/4Z7bU/DIq/8RdjR11qmh7PaSegu1NGZJV63QH/2eB6cVnN/w+U7MgIzwCOrASNo/FCbu8XA7UtPLuBjFHfJlqnKR57bWqmdwahoUo03y8og0aq9M5LnyfuQyyuK4GH87onZeoUMnEC6yR0gTg3oKB0wQKpoKRIQu7AdnESIBhpx49YqDHFJfnbWET0sI2ITI29lV2gNy25rk9jtp+0Av+p/U0ASpJWsiBeyKo3oVyzExpZjOXZAZkw8VYtSWfFKmLEamNtmdPXPt0DdozZO1so8DZDXN+puvzeF/1vEhnA6E=,iv:4kGEbubfyuP42BPGlo1m8UUQ88d3X/rkAtNWie/Jngc=,tag:H/IcV3JTvnZzf2qPeVjq9A==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -20,8 +20,8 @@ sops:
             SUljb3R5aUlPQXJsWWN5VnIya0VHNmsKSLXJT8KVYCMvNwVDARxaKr4KZANHUqPW
             55CED1NP9KR0GTvVf5jbsLMXgRK4ikavWxXQuEKqDUVv2iYy8gINAQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-08-24T04:51:18Z"
-    mac: ENC[AES256_GCM,data:XCl0FWo8rflUfOs0E4Vud+93/i4GpBrOn47lYx9CASTEtIYiMI1PujI0twJCXZJNfWqmI9Ly4NkWjb9Ge6pQWxmr1QoG5+6C5+/I+W6p5ovDzjZ983UAc5YKdxhzRfm6OGLDHt3/Gkwkm23ELYOa0sJQG2UW6JpMAC41cVsFDqo=,iv:p7BmJwPTBeHi9+pEkGDC4xbVAlNHaPYWLj0ZDDir7zI=,tag:gX4fEyqLDCgEMkaniNol9g==,type:str]
+    lastmodified: "2023-08-24T05:07:54Z"
+    mac: ENC[AES256_GCM,data:c2ifTouZtHNuELgmEmNQPkAcy5/J1dG0KLPCOkeB3g8olT/vl6SMX9b8r8iz3Tb2c7yCPtyKlkyYa6jkUXu3xD2vJVB+GJWQ6grkaXd8FwllbIXxTjZnL12LXKbJxaBqZvpFFb0Ulfh2tXFbQj0qt8Lhq3A8y3OHuaCUXCeFiUc=,iv:StNHaqECyFiLOJV4Ay1Gbykuq6PJ7zju7bByoC1K0P8=,tag:UK1KdEbvFFPTxafSsZdrLg==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.7.3
