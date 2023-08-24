@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: web-config
+    namespace: aitbase-admin
+data:
+    nginx-my.conf: ENC[AES256_GCM,data:6CiYmQLYOAyx2X56cOOGZoQg+xR11mKnJfIHagKgPy+PrEApnjd0PpyrLfZbhf9uKgJM1oJQAL30Sxsiv4jA4F1EDdVzhvbATs/OcsT3qHbTAl4FmmekHjXxB7LDOdff4IBGCPFN+B+n+PuVNYr7fnBvEcm4ccwy5q8YfbMwS3fNloQQ1ZlmAObsqFcqUBwXzQ/b1ajF1tda9sOE3ojAgzMaHhWpiCGEjnzoQJjY2X6gVfWKNYxdeUTP8ShH1aZJhE6btyUOqFzyxEeLFGniDwpq6+P+RXYHwptCKs3hwiQlQC2XAAo60Sdvj2RUbaBwQIJAVcasyq8i9AM025VdQIHn/kY8CLpcQejecbY74tmLS347oUzEbUAsDdnKdn7qSuQK4ajpC1Oawsg+ti3doSvUZs9y6Io6Ng3hHO/xh2qnF4ntiBvAWWV7GuIBhFgxCjvO38Px7q+K4rprStqYg4z9raYqivSbqRBjf3bNiEjxBLjVaH+i5Kryg+Or54qejcU7Q5dUNsAduV7a+O8OYoAnX96/ztPqBHEFLVBEMizSaGJGXGmviowTA3Xoc4o8Yn7SEOfHlgerWRf6QkPDZd9dsIeF1eTFOtiWRGT7A0Ii/h/LpTE4EwAapY0uBOzfhxlGEPdL7MClzkZBE/s25ZjMP2g97aGtNlXiDxNZuVk26UZX5rkzoZuDSJTfludy7pMoBtX5/L3fW1a+daoFVjgoM17WDTLiP3nrYGkkqRUzIz9FuTSikQaxER7ltoWlt8kSFLxbxHQ0ffYoRbA4m1h9dVAl4J/uVsG0NcpyH/46UUaDdez5Ni5wEZYKz5x/FYsFemic2FnoUjemqKWTop4AkyButUMXRmepsxpQVqiMh+MAN//2zrc4H+G5UVT7huzjSDEg04zgufB6tnM5hl0nYL+LAysFAyfK3H3c7V2PVSAsUGsrRr/iZXczr9mf2T1hMC15NobtTi6XfTggDB7W91c/fhOT+Weq2u7I15SVqyqjuveDOZJ7Vs1dvpv7E9E0xLb4UFnh78IPp57v0N9DWPCkPqWnhk0Q8qTARxdE3bz0C4WKHf7YdoKYOHlWrJ+JNCZAfqidn8FIkFiD+6GoWg9+w2kO/guV/yg=,iv:9Ofh+ZLDOTGhCNWeyae3VnOl9VL9Zvd0A6LByOdBqzI=,tag:xWY4W1CQLhokl9SKp6GGlQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1nd65hrj4sk76qrmttmmlc4uuk4nlg6n6r9y43r4t3q2032eedg7qn95ynh
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBvVTlhclpybCtOVHJYRk9T
+            VE45MGRlUGp4Qkp4TThDc0E5V2lQejhQYlhRCk5tamJUUXk5WFQvclA5em5vcjB6
+            L095dDNFOEZ3T1lNdml6Zmo5SmpONWsKLS0tIEdMV215c0dOakNza3FyQTVtV0Vx
+            SUljb3R5aUlPQXJsWWN5VnIya0VHNmsKSLXJT8KVYCMvNwVDARxaKr4KZANHUqPW
+            55CED1NP9KR0GTvVf5jbsLMXgRK4ikavWxXQuEKqDUVv2iYy8gINAQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-08-24T04:51:18Z"
+    mac: ENC[AES256_GCM,data:XCl0FWo8rflUfOs0E4Vud+93/i4GpBrOn47lYx9CASTEtIYiMI1PujI0twJCXZJNfWqmI9Ly4NkWjb9Ge6pQWxmr1QoG5+6C5+/I+W6p5ovDzjZ983UAc5YKdxhzRfm6OGLDHt3/Gkwkm23ELYOa0sJQG2UW6JpMAC41cVsFDqo=,iv:p7BmJwPTBeHi9+pEkGDC4xbVAlNHaPYWLj0ZDDir7zI=,tag:gX4fEyqLDCgEMkaniNol9g==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3
