@@ -23,9 +23,14 @@ spec:
     remediation:
       retries: 5
   values:
+    global:
+      storageClass: longhorn
     auth:
       existingSecret: db-secrets
       existingSecretPasswordKey: redis-password
+    replica:
+      persistence:
+        storageClass: longhorn
     master:
       persistence:
         enabled: true
