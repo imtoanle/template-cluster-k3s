@@ -36,7 +36,7 @@ spec:
 
     image:
       repository: aitbase/aitbase-admin-server
-      tag: v1.0.3
+      tag: v1.0.4
     ingress:
       main:
         enabled: false
