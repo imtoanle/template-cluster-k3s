@@ -1,0 +1,12 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - namespace.yaml
+  - secret.sops.yaml
+  - backend-config.sops.yaml
+  - web-config.sops.yaml
+  - db
+  - redis
+  - backend
+  - frontend

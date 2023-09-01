@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: web-config
+    namespace: aiom
+data:
+    nginx-my.conf: ENC[AES256_GCM,data:8FAruA4A8TAXbrqFhKgSYBEUDqKOPggkETSTXZLelpg/4N6QC8+3Hf9B9Z5AJlpRBrslvmaBR3E1H0xaz/5OY3N7ZLLFbXD0cyq+p6Owjxo15o0LlZoPRejfxcZnJZnuaeJKmmjEhWvCVnyxbfWSNLUcg16aSqUydI7bwjCszwW0TVbVRDUd7wgjSpIvXBgYMSJpr/sdw1XF7DufOJMyI4Hvgs2VuI4HpmBMZDccM+0gUuKKL84HWvmi4zrEgRH+h0BCyXfpVPSsWVM5TXojBPN9o332P5ZrJcV4VXH9ivy5ANGqZwA4HS/BFhkLa1ymBQUrNjg8AmjZ7Z9LNIw1GsPk1/95Zgrp6SEraiGG6OG0QOWO4R19xujtI7JjJGJ+6KHldqR9Z+zwbetVRTt8MFUqOVGrZx4ApeyQAp7RJUD+QV+1KtLiO0mD/msmbqr0bWBwPFB1d3Suu25WIJ4GEO9GzAKPaSQdgUhGlMwu9eHJfhA+dMPQtUcym0j69aPPULESS2tM4DB83xZ8fDimeDOdJd7nNf1oPZNhaakFi0+Rz+xjnAELBy3PS7TVokQgHEyTUxFARwC3eITeuna757rkVCf6Dzn7F9zfc2b0UchT1ZQzDpYtIgkNBSHrFSI0Z5c4FiwWzeQ+W7cIOKd86IGqswK+O81e7ZJQNINw1zHq1+E64W/FpU9+FNxuoc0+YC0evd9XYOviB7JkFXD9IIawLWdaQTXhi+ayV7I/v3wxOlg7wHb8YgWBDsudjE4kgMBxq+OhxtMAd5GjnvfeTqVE98r5O4bD5QTtQuPAH0FZN6hdY6JsGJok7Wsw9h09qCRqtoUSJ6UDSlu5bEuNvKI3INZyqrHXEPecR6IVkhL5DwcEKVilq07DjdNVbQ9rIVA1lYtd9BeDIKKIzQA3V3xBuvHPS9QsGnxjOApzSB9yLuDxUed+OjItDPs+egqlaoWCkKGu+fYWmGL2smWG4LR/Y7Z83hC3O5cxi3bxCkbwJkmI0IvG+aelUfPuCsI/ByKBZOlLRbE30eN/ZtGpBZbdhYqDquI0lHbxWe6IaKHmAPkkQh0IgyI=,iv:UU+agNRaIdYmmAAcfh8mBWLt3Q1QBa5MDBXtq+PfzG0=,tag:B5RcKwKtKjq1/N7l8HcfSQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1nd65hrj4sk76qrmttmmlc4uuk4nlg6n6r9y43r4t3q2032eedg7qn95ynh
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBvVTlhclpybCtOVHJYRk9T
+            VE45MGRlUGp4Qkp4TThDc0E5V2lQejhQYlhRCk5tamJUUXk5WFQvclA5em5vcjB6
+            L095dDNFOEZ3T1lNdml6Zmo5SmpONWsKLS0tIEdMV215c0dOakNza3FyQTVtV0Vx
+            SUljb3R5aUlPQXJsWWN5VnIya0VHNmsKSLXJT8KVYCMvNwVDARxaKr4KZANHUqPW
+            55CED1NP9KR0GTvVf5jbsLMXgRK4ikavWxXQuEKqDUVv2iYy8gINAQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-09-01T08:04:19Z"
+    mac: ENC[AES256_GCM,data:6R0AIK2z9f7XvXaqFii1kg0oc/Xa5IwIABkqTWK5f35yXhMGdQScZOdgZF2kNJDvtB/C7i3UVkhdid8ym3dvpGMoincTL/3HGwDsB99z4g9V6WR2yrYZQcTspdPMa+e14ngIvt06p8lsIT8kp6+JdryScnR2FH+qDu8PPuxYg3s=,iv:zz0UzC8pxsx3W0AmXZcaWOTiDlUcqkvSS25jxWZMtJc=,tag:CoDQvLbJ1UzoXEL/eVnRzg==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3

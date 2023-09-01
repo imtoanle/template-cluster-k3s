@@ -1,0 +1,58 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: aiom
+  namespace: aiom
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: aiom
+      version: 1.0.1
+      sourceRef:
+        kind: HelmRepository
+        name: imtoanle
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: NotIn
+                  values:
+                    - home-k3s-worker-7
+    env:
+
+    image:
+      repository: aitbase/aiom-server
+      tag: 1.0.0
+    ingress:
+      main:
+        enabled: false
+    # securityContext:
+    #   runAsGroup: 1000
+    #   runAsUser: 1000
+    persistence:
+      config:
+        enabled: true
+        type: "configMap"
+        name: "backend-config"
+        mountPath: "/app/config.yaml"
+        subPath: "config.yaml"
+      uploads:
+        enabled: true
+        mountPath: /app/uploads
+        storageClass: longhorn
+        accessMode: ReadWriteOnce
+        size: 1Gi

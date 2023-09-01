@@ -1,0 +1,72 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: aiom-web
+  namespace: aiom
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: aiom
+      version: 1.0.1
+      sourceRef:
+        kind: HelmRepository
+        name: imtoanle
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: NotIn
+                  values:
+                    - home-k3s-worker-7
+    env:
+
+    image:
+      repository: aitbase/aiom-web
+      tag: 1.0.0
+    service:
+      main:
+        ports:
+          http:
+            port: 8080
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+          external-dns/is-public: "true"
+        hosts:
+          - host: &host "aiom.aitbase.com"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: "aiom-web-tls"
+    persistence:
+      config:
+        enabled: true
+        type: "configMap"
+        name: "web-config"
+        mountPath: "/etc/nginx/conf.d/my.conf"
+        subPath: "nginx-my.conf"
+    # securityContext:
+    #   runAsGroup: 1000
+    #   runAsUser: 1000
