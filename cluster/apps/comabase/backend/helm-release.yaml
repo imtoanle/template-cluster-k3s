@@ -27,7 +27,7 @@ spec:
 
     image:
       repository: aitbase/comabase-server
-      tag: v1.3.2
+      tag: v1.3.6
     ingress:
       main:
         enabled: false
