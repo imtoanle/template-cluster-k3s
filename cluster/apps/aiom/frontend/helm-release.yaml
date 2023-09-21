@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: aiom
-      version: 1.0.2
+      version: 1.0.1
       sourceRef:
         kind: HelmRepository
         name: imtoanle
@@ -23,6 +23,7 @@ spec:
     remediation:
       retries: 5
   values:
+    hostNetwork: false
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
