@@ -76,6 +76,14 @@ spec:
     extraEnvVars:
       - name: MM_SERVICESETTINGS_SITEURL
         value: "https://chat.${SECRET_DOMAIN}"
+      - name: MM_SQLSETTINGS_DRIVERNAME
+        value: "postgres"
+      - name: MM_CONFIG
+        valueFrom:
+          secretKeyRef:
+            name: mattermost-dbsecret
+            key: mattermost.dbsecret
+
     configJSON:
       ServiceSettings:
         SiteURL: "https://chat.${SECRET_DOMAIN}"
@@ -85,6 +93,7 @@ spec:
       enabled: false
     externalDB:
       enabled: true
+      externalDriverType: postgres
       existingSecrets: mattermost-secrets
     securityContext:
       fsGroup: 2000
