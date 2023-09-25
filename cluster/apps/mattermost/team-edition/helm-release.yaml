@@ -12,7 +12,7 @@ spec:
       version: 6.6.36
       sourceRef:
         kind: HelmRepository
-        name: imtoanle
+        name: mattermost
         namespace: flux-system
       interval: 15m
   install:
