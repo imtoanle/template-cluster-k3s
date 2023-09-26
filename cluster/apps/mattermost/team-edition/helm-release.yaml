@@ -78,12 +78,21 @@ spec:
         value: "https://chat.${SECRET_DOMAIN}"
       - name: MM_SQLSETTINGS_DRIVERNAME
         value: "postgres"
-      - name: MM_CONFIG
+      - name: POSTGRES_USER_GITLAB
+        value: "mattermost-team-edition"
+      - name: POSTGRES_DB_NAME_MATTERMOST
+        value: "mattermost-team-edition"
+      - name: POSTGRES_HOST_GITLAB
+        value: "mattermost-db-postgresql.mattermost.svc.cluster.local"
+      - name: POSTGRES_PORT_GITLAB
+        value: "5432"
+      - name: POSTGRES_PASSWORD_GITLAB
         valueFrom:
           secretKeyRef:
             name: mattermost-secrets
-            key: mattermost.dbsecret
-
+            key: password
+      - name: MM_SQLSETTINGS_DATASOURCE
+        value: "postgres://$(POSTGRES_USER_GITLAB):$(POSTGRES_PASSWORD_GITLAB)@$(POSTGRES_HOST_GITLAB):$(POSTGRES_PORT_GITLAB)/$(POSTGRES_DB_NAME_MATTERMOST)?sslmode=disable&connect_timeout=10"
     configJSON:
       ServiceSettings:
         SiteURL: "https://chat.${SECRET_DOMAIN}"
