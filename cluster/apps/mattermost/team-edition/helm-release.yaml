@@ -81,7 +81,7 @@ spec:
       - name: MM_CONFIG
         valueFrom:
           secretKeyRef:
-            name: mattermost-dbsecret
+            name: mattermost-secrets
             key: mattermost.dbsecret
 
     configJSON:
