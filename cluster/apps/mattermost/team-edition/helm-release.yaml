@@ -33,7 +33,7 @@ spec:
         ## Default: volume.alpha.kubernetes.io/storage-class: default
         ##
         storageClass: longhorn
-        accessMode: ReadWriteOnce
+        accessMode: ReadWriteMany
       # existingClaim: ""
       plugins:
         enabled: true
@@ -42,7 +42,7 @@ spec:
         ## Default: volume.alpha.kubernetes.io/storage-class: default
         ##
         storageClass: longhorn
-        accessMode: ReadWriteOnce
+        accessMode: ReadWriteMany
       # existingClaim: ""
     ingress:
       enabled: true
