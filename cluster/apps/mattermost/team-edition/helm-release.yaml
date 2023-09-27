@@ -89,7 +89,7 @@ spec:
       - name: POSTGRES_PASSWORD_GITLAB
         valueFrom:
           secretKeyRef:
-            name: mattermost-team-edition-mattermost-dbsecret
+            name: mattermost-secrets
             key: password
       - name: MM_SQLSETTINGS_DATASOURCE
         value: "postgres://$(POSTGRES_USER_GITLAB):$(POSTGRES_PASSWORD_GITLAB)@$(POSTGRES_HOST_GITLAB):$(POSTGRES_PORT_GITLAB)/$(POSTGRES_DB_NAME_MATTERMOST)?sslmode=disable&connect_timeout=10"
