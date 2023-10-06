@@ -17,6 +17,7 @@ resources:
   - networking
   - nexopos
   - nocodb
+  - prefecthq
   - storage
   - superset
   - system-upgrade

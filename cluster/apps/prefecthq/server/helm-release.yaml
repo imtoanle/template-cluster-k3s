@@ -1,0 +1,44 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: prefect-server
+  namespace: prefecthq
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: prefect-server
+      version: 2023.9.29
+      sourceRef:
+        kind: HelmRepository
+        name: prefecthq
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    server:
+      publicApiUrl: https://prefect.aitbase.com/api
+      ingress:
+        enabled: true
+        className: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns/is-public: "true"
+        tls: true
+        host:
+          hostname: prefect.aitbase.com
+    postgresql:
+      enabled: true
+      auth:
+        database: prefect_server
+        username: prefect_server
+        existingSecret: db-secrets
+      useSubChart: false

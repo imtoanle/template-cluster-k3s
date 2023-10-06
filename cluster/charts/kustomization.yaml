@@ -19,6 +19,7 @@ resources:
   - minio.yaml
   - netmaker.yaml
   - nfs-subdir-external-provisioner.yaml
+  - prefecthq.yaml
   - prometheus-community.yaml
   - rook-ceph.yaml
   - stakater.yaml
