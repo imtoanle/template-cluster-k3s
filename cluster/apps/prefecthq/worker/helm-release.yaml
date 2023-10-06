@@ -24,9 +24,17 @@ spec:
       retries: 5
   values:
     worker:
-      apiConfig: server
-      serverApiConfig:
-        apiUrl: http://prefect-server.prefecthq.svc.cluster.local:4200/api
-        uiUrl: https://prefect.aitbase.com
+      apiConfig: cloud
+      cloudApiConfig:
+        # -- prefect account ID
+        accountId: "208e26e5-fbaf-4ab7-8a75-a9e2c76e409e"
+        # -- prefect workspace ID
+        workspaceId: "7495a122-01ed-4468-bf30-621114bc2601"
+
+        apiKeySecret:
+          # -- prefect API secret name
+          name: db-secrets
+          # -- prefect API secret key
+          key: prefect-api-key
       config:
-        workPool: default-agent-pool
+        workPool: k8s-home-pool-1
