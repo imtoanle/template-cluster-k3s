@@ -28,3 +28,5 @@ spec:
       serverApiConfig:
         apiUrl: http://prefect-server.prefecthq.svc.cluster.local:4200/api
         uiUrl: https://prefect.aitbase.com
+      config:
+        workPool: default-agent-pool
