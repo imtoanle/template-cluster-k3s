@@ -66,11 +66,8 @@ spec:
     redis:
       enabled: false
       nameOverride: chatwoot-redis
-      auth:
-        password: redis
-        # when defined the password field is ignored
-        existingSecret: db-secrets
-        existingSecretPasswordKey: redis-password
+      existingSecret: db-secrets
+      existingSecretPasswordKey: redis-password
       # The following variables are only used when internal Redis is disabled
       host: chatwoot-redis-master.chatwoot.svc.cluster.local
       # Just omit the password field if your redis cluster doesn't use password
