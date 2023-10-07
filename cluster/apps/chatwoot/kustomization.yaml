@@ -6,4 +6,5 @@ resources:
   - secret.sops.yaml
   - env-secret.sops.yaml
   - db
+  - redis
   - chatwoot
