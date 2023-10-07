@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: chatwoot
-      version: v3.1.0
+      version: 1.1.2
       sourceRef:
         kind: HelmRepository
         name: chatwoot
