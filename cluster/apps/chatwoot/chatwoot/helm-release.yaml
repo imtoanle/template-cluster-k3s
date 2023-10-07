@@ -51,13 +51,13 @@ spec:
     postgresql:
       enabled: false
       auth:
-        username: chatwoot
+        username: postgres
         database: chatwoot
         # when existingSecret is defined auth.password, auth.PostgressPassword
         # is ignored.
         existingSecret: db-secrets
         secretKeys:
-          adminPasswordKey: password
+          adminPasswordKey: postgres-password
           replicationPasswordKey: replication-password
       # The following variables are only used when internal PG is disabled
       postgresqlHost: chatwoot-db-postgresql.chatwoot.svc.cluster.local
