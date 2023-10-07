@@ -57,7 +57,7 @@ spec:
         # is ignored.
         existingSecret: db-secrets
         secretKeys:
-          adminPasswordKey: postgres-password
+          adminPasswordKey: password
           replicationPasswordKey: replication-password
       # The following variables are only used when internal PG is disabled
       postgresqlHost: chatwoot-db-postgresql.chatwoot.svc.cluster.local
