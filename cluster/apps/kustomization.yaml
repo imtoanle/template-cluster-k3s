@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - aiom
   - aitbase-admin
+  - chatwoot
   - coder
   - comabase
   - default

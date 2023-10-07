@@ -1,0 +1,69 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: chatwoot
+  namespace: chatwoot
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: chatwoot
+      version: 2023.9.29
+      sourceRef:
+        kind: HelmRepository
+        name: chatwoot
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    ingress:
+      enabled: true
+      # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
+      # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
+      ingressClassName: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+        external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+        external-dns/is-public: "true"
+      hosts:
+        - host: "livesupport.aitbase.com"
+          paths:
+            - path: /
+              pathType: Prefix
+              backend:
+                service:
+                  name: chatwoot
+                  port:
+                    number: 3000
+      tls:
+        - secretName: chatwoot-prod-tls
+          hosts:
+            - livesupport.aitbase.com
+
+    postgresql:
+      enabled: false
+      auth:
+        username: chatwoot
+        database: chatwoot
+        # when existingSecret is defined auth.password, auth.PostgressPassword
+        # is ignored.
+        existingSecret: db-secrets
+        secretKeys:
+          adminPasswordKey: postgres-password
+          replicationPasswordKey: replication-password
+      # The following variables are only used when internal PG is disabled
+      postgresqlHost: chatwoot-db-postgresql.chatwoot.svc.cluster.local
+      postgresqlPort: 5432
+
+    existingEnvSecret: env-secrets
+    env:
+      ACTIVE_STORAGE_SERVICE: local
+      FRONTEND_URL: "https://livesupport.aitbase.com"

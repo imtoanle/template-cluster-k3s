@@ -5,6 +5,7 @@ resources:
   - 8gears.yaml
   - bitnami.yaml
   - bjw-s.yaml
+  - chatwoot.yaml
   - coder-v2.yaml
   - external-dns.yaml
   - hajimari.yaml
