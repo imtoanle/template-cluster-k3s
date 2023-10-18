@@ -22,3 +22,4 @@ resources:
   - storage
   - superset
   - system-upgrade
+  - windmill
