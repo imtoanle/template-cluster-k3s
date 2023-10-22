@@ -23,6 +23,9 @@ spec:
     remediation:
       retries: 5
   values:
+    postgresql:
+      enabled: false
+
     windmill:
       tag: "main"
       image: "aitbase/windmill-puppeteer"
