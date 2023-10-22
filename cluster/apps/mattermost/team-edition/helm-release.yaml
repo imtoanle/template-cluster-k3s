@@ -103,6 +103,7 @@ spec:
     externalDB:
       enabled: true
       externalDriverType: postgres
+      externalConnectionString: "$(POSTGRES_USER_GITLAB):$(POSTGRES_PASSWORD_GITLAB)@$(POSTGRES_HOST_GITLAB):$(POSTGRES_PORT_GITLAB)/$(POSTGRES_DB_NAME_MATTERMOST)?sslmode=disable&connect_timeout=10"
     securityContext:
       fsGroup: 2000
       runAsGroup: 2000
