@@ -12,7 +12,7 @@ spec:
       version: 6.6.40
       sourceRef:
         kind: HelmRepository
-        name: mattermost
+        name: imtoanle
         namespace: flux-system
       interval: 15m
   install:
@@ -107,6 +107,7 @@ spec:
       enabled: false
     externalDB:
       enabled: true
+      includeConfig: false
       externalDriverType: postgres
     securityContext:
       fsGroup: 2000
