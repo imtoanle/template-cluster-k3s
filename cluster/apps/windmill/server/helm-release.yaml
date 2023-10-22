@@ -27,6 +27,32 @@ spec:
       databaseUrlSecretName: app-secrets
       baseDomain: &host "windmill.aitbase.com"
       baseProtocol: https
+      workerGroups:
+        - name: "automation"
+          replicas: 3
+          # -- Annotations to apply to the pods
+          annotations: {}
+
+          # -- Node selector to use for scheduling the pods
+          nodeSelector: {}
+
+          # -- Tolerations to apply to the pods
+          tolerations: []
+
+          # -- Affinity rules to apply to the pods
+          affinity: {}
+
+          # -- Resource limits and requests for the pods
+          resources:
+            requests:
+              memory: "1028Mi"
+              cpu: "500m"
+            limits:
+              memory: "2048Mi"
+              cpu: "1000m"
+
+          # -- Extra environment variables to apply to the pods
+          extraEnv: []
     ingress:
       # -- enable/disable included ingress resource
       enabled: true
