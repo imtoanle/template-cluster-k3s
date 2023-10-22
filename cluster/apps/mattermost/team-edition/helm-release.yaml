@@ -35,14 +35,14 @@ spec:
         storageClass: longhorn
         accessMode: ReadWriteOnce
       # existingClaim: ""
-      plugins:
-        enabled: true
-        size: 1Gi
-        ## If defined, volume.beta.kubernetes.io/storage-class: <storageClass>
-        ## Default: volume.alpha.kubernetes.io/storage-class: default
-        ##
-        storageClass: longhorn
-        accessMode: ReadWriteOnce
+      # plugins:
+      #   enabled: true
+      #   size: 1Gi
+      #   ## If defined, volume.beta.kubernetes.io/storage-class: <storageClass>
+      #   ## Default: volume.alpha.kubernetes.io/storage-class: default
+      #   ##
+      #   storageClass: longhorn
+      #   accessMode: ReadWriteOnce
       # existingClaim: ""
     ingress:
       enabled: true
