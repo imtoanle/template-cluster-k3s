@@ -56,26 +56,6 @@ spec:
           # -- Extra environment variables to apply to the pods
           extraEnv: []
 
-        - name: "gpu"
-          replicas: 0
-          # -- Annotations to apply to the pods
-          annotations: {}
-
-          # -- Node selector to use for scheduling the pods
-          nodeSelector: {}
-
-          # -- Tolerations to apply to the pods
-          tolerations: []
-
-          # -- Affinity rules to apply to the pods
-          affinity: {}
-
-          # -- Resource limits and requests for the pods
-          resources: {}
-
-          # -- Extra environment variables to apply to the pods
-          extraEnv: []
-
         - name: "native"
           replicas: 4
           # -- Annotations to apply to the pods
@@ -98,32 +78,6 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "200m"
-
-          # -- Extra environment variables to apply to the pods
-          extraEnv: []
-
-        - name: "automation"
-          replicas: 3
-          # -- Annotations to apply to the pods
-          annotations: {}
-
-          # -- Node selector to use for scheduling the pods
-          nodeSelector: {}
-
-          # -- Tolerations to apply to the pods
-          tolerations: []
-
-          # -- Affinity rules to apply to the pods
-          affinity: {}
-
-          # -- Resource limits and requests for the pods
-          resources:
-            requests:
-              memory: "1028Mi"
-              cpu: "500m"
-            limits:
-              memory: "2048Mi"
-              cpu: "1000m"
 
           # -- Extra environment variables to apply to the pods
           extraEnv: []
