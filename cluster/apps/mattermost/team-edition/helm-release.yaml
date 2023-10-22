@@ -74,6 +74,11 @@ spec:
           hosts:
             - *host
     extraEnvVars:
+      - name: MM_CONFIG
+        valueFrom:
+          secretKeyRef:
+            name: mattermost-secrets
+            key: mattermost.dbsecret
       - name: MM_SERVICESETTINGS_SITEURL
         value: "https://chat.${SECRET_DOMAIN}"
       - name: MM_SQLSETTINGS_DRIVERNAME
@@ -103,7 +108,6 @@ spec:
     externalDB:
       enabled: true
       externalDriverType: postgres
-      externalConnectionString: "$(POSTGRES_USER_GITLAB):$(POSTGRES_PASSWORD_GITLAB)@$(POSTGRES_HOST_GITLAB):$(POSTGRES_PORT_GITLAB)/$(POSTGRES_DB_NAME_MATTERMOST)?sslmode=disable&connect_timeout=10"
     securityContext:
       fsGroup: 2000
       runAsGroup: 2000
