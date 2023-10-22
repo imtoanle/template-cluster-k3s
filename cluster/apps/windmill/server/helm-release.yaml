@@ -36,16 +36,12 @@ spec:
           replicas: 3
           # -- Annotations to apply to the pods
           annotations: {}
-
           # -- Node selector to use for scheduling the pods
           nodeSelector: {}
-
           # -- Tolerations to apply to the pods
           tolerations: []
-
           # -- Affinity rules to apply to the pods
           affinity: {}
-
           # -- Resource limits and requests for the pods
           resources:
             requests:
@@ -62,16 +58,12 @@ spec:
           replicas: 4
           # -- Annotations to apply to the pods
           annotations: {}
-
           # -- Node selector to use for scheduling the pods
           nodeSelector: {}
-
           # -- Tolerations to apply to the pods
           tolerations: []
-
           # -- Affinity rules to apply to the pods
           affinity: {}
-
           # -- Resource limits and requests for the pods
           resources:
             requests:
@@ -80,7 +72,6 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "200m"
-
           # -- Extra environment variables to apply to the pods
           extraEnv: []
     ingress:
