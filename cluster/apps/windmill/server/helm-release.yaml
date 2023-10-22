@@ -24,6 +24,8 @@ spec:
       retries: 5
   values:
     windmill:
+      tag: "main"
+      image: "aitbase/windmill-puppeteer"
       databaseUrlSecretName: app-secrets
       baseDomain: &host "windmill.aitbase.com"
       baseProtocol: https
